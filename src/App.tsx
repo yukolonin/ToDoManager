@@ -27,26 +27,33 @@ const groups = [
     { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ РАЗ', Icon: SmokingRoomsIcon },
 ]
 
-/*
-Structure probably can be simplified, but I haven't found the way
-to make it work for the moment
-*/
-const taskList = [
-    { date: '07/02/2021', tasks: [
-        { task: 'Убить мух', group: 'a'},
-        { task: 'Забрать погону', group: 'b'},
-        { task: 'Постоять как цапля', group: 'a'}
-        ]
-    },
-    { date: '01/02/2021', tasks: [
-        { task: 'Помыться под струей', group: 'b'}
-        ]
-    },
-    { date: '05/02/2021', tasks: [
-        { task: 'Выпить три семерки с дурой одной', group: 'c'}
-        ]
-    }
+const tl2 = [
+    {date: '07/02/2021', task: 'Убить мух', group: 'a'},
+    {date: '07/02/2021', task: 'Забрать погону', group: 'b'},
+    {date: '01/02/2021', task: 'Помыться под струей', group: 'b'},
+    {date: '07/02/2021', task: 'Постоять как цапля', group: 'a'},
+    {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: 'c'}
 ]
+tl2.sort(function(a:any, b:any){
+    let aa = a.date.split('/').reverse().join(),
+        bb = b.date.split('/').reverse().join();
+    return aa < bb ? -1 : (aa > bb ? 1 : 0);
+});
+
+let dates = []
+let currentDate = '0'
+for(let i = 0; i < tl2.length; i++){
+    if (currentDate != tl2[i].date) {
+        currentDate = tl2[i].date
+        dates.push(i)
+    }
+}
+// Now "dates" represent places where date should be inserted
+dates.reverse() // Reverse "dates" to not mess up the numeration while inserting values in array
+for(let i = 0; i < dates.length; i++){
+    tl2.splice(dates[i], 0, {date: tl2[dates[i]].date, task: '', group:'DATE'})
+}
+
 
 function App() {
     return (
@@ -55,7 +62,7 @@ function App() {
                 <Sidebar items={groups} />
             </div>
             <div>
-                <TaskList items={taskList} />
+                <TaskList items={tl2} />
             </div>
         </div>
     )
