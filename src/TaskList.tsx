@@ -22,7 +22,7 @@ function TaskList({items}:any){
 
     // If list is not empty:
     return (
-        <div className="tasklist">
+        <div className="task-list">
             <Typography display="inline" className="main-frame-header">Привет, братишка</Typography>
             <Button className="add-button">Курлык</Button>
             <List>
@@ -33,9 +33,7 @@ function TaskList({items}:any){
                         </ListItem>
                         {tasks.map(({task, group}:any) => (
                             <ListItem key={task} button>
-                                <div>
                                     <TaskAccordion task={task} date={date} group={group} />
-                                </div>
                             </ListItem>
                         ))}
                     </div>

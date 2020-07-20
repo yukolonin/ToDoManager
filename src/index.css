@@ -20,8 +20,9 @@ code {
   bottom: 0;
 }
 
-.tasklist {
+.task-list {
   margin-left: 280px;
+  margin-right: 400px;
 }
 
 .sidebar-icon {
@@ -37,4 +38,9 @@ code {
 
 .add-button {
 
+}
+
+.side-menu{
+  width: 400px;
+  float:right;
 }
