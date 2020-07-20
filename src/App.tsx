@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Sidebar from './Sidebar'
 import TaskList from './TaskList'
+import SideMenu from './SideMenu'
 
 import FormatShapes from '@material-ui/icons/FormatShapes';
 import HotTubIcon from '@material-ui/icons/HotTub';
@@ -17,23 +18,24 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 
 
-const groups = [
+let groups = [
     { name: 'A', label: 'АААААААААААА', Icon: FormatShapes },
     { name: 'B', label: 'ВЕСЬ ПОЛ ЗАСРАЛ', Icon: HotTubIcon },
     { name: 'C', label: 'Я ТЕБЯ ЩА УБЬЮ НАХУЙ', Icon: MoodBadIcon },
     { name: 'D', label: 'ТЫ ПОЕХАВШИЙ УЖЕ, ВСЕ', Icon: MenuBookIcon },
     { name: 'E', label: 'НАЧАЛЬНИК', Icon: AccessibilityNewIcon },
     { name: 'F', label: 'ИДИ ПОД СТРУЮ МОЙСЯ', Icon: BeachAccessIcon },
-    { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ РАЗ', Icon: SmokingRoomsIcon },
-]
+    { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ', Icon: SmokingRoomsIcon },
+] as object[];
 
-const tl2 = [
+let tl2 = [
     {date: '07/02/2021', task: 'Убить мух', group: 'a'},
     {date: '07/02/2021', task: 'Забрать погону', group: 'b'},
     {date: '01/02/2021', task: 'Помыться под струей', group: 'b'},
     {date: '07/02/2021', task: 'Постоять как цапля', group: 'a'},
     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: 'c'}
 ]
+
 tl2.sort(function(a:any, b:any){
     let aa = a.date.split('/').reverse().join(),
         bb = b.date.split('/').reverse().join();
@@ -47,13 +49,13 @@ for(let i = 0; i < tl2.length; i++){
         currentDate = tl2[i].date
         dates.push(i)
     }
-}
-// Now "dates" represent places where date should be inserted
+} // Now "dates" represent places where date should be inserted
 dates.reverse() // Reverse "dates" to not mess up the numeration while inserting values in array
 for(let i = 0; i < dates.length; i++){
     tl2.splice(dates[i], 0, {date: tl2[dates[i]].date, task: '', group:'DATE'})
 }
 
+let menuStub = {isNew: false, date: '01/02/2021', task: 'Постоять как слоник', group: 'b'}
 
 function App() {
     return (
@@ -63,6 +65,9 @@ function App() {
             </div>
             <div>
                 <TaskList items={tl2} />
+            </div>
+            <div>
+                <SideMenu isNew={menuStub.isNew} xdate={menuStub.date} xtask={menuStub.task} xgroup={menuStub.group} tl={tl2}/>
             </div>
         </div>
     )
