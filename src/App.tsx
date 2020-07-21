@@ -4,6 +4,7 @@ import './App.css';
 import Sidebar from './Sidebar'
 import TaskList from './TaskList'
 import SideMenu from './SideMenu'
+import Groups from './Groups'
 
 import FormatShapes from '@material-ui/icons/FormatShapes';
 import HotTubIcon from '@material-ui/icons/HotTub';
@@ -17,40 +18,43 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 
-const enum groupss {
-    'Вилки',
-    'Погоны',
-    'Сладкий хлеб',
-    'Слоники',
-    'Струи',
-    'Цапли',
-    'Шашки'
-}
-const enum icons {
-    FormatShapes,
-    HotTubIcon,
-    MoodBadIcon,
-    MenuBookIcon,
-    AccessibilityNewIcon,
-    BeachAccessIcon,
-    SmokingRoomsIcon
-}
+//-----------------
 
-interface Group {
-    name: string;
-    label: string;
-    Icon: React.Component;
-}
+//
+// enum Groups {
+//     'ВИЛКИ' = 'Вилки',
+//     'ПОГОНЫ' = 'Погоны',
+//     'СЛАДКИЙ ХЛЕБ' = 'Сладкий хлеб',
+//     'СЛОНИКИ' = 'Слоники',
+//     'СТРУИ' = 'Струи',
+//     'ЦАПЛИ' = 'Цапли',
+//     'ШАШКИ' = 'Шашки'
+// }
+// const enum icons {
+//     FormatShapes,
+//     HotTubIcon,
+//     MoodBadIcon,
+//     MenuBookIcon,
+//     AccessibilityNewIcon,
+//     BeachAccessIcon,
+//     SmokingRoomsIcon
+// }
 
-let groups = [
-    { name: 'A', label: 'АААААААААААА', Icon: FormatShapes },
-    { name: 'B', label: 'ВЕСЬ ПОЛ ЗАСРАЛ', Icon: HotTubIcon },
-    { name: 'C', label: 'Я ТЕБЯ ЩА УБЬЮ НАХУЙ', Icon: MoodBadIcon },
-    { name: 'D', label: 'ТЫ ПОЕХАВШИЙ УЖЕ, ВСЕ', Icon: MenuBookIcon },
-    { name: 'E', label: 'НАЧАЛЬНИК', Icon: AccessibilityNewIcon },
-    { name: 'F', label: 'ИДИ ПОД СТРУЮ МОЙСЯ', Icon: BeachAccessIcon },
-    { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ', Icon: SmokingRoomsIcon },
-]
+// interface Group {
+//     name: string;
+//     label: string;
+//     Icon: React.Component;
+// }
+
+// let groups = [
+//     { name: 'A', label: 'АААААААААААА', Icon: FormatShapes },
+//     { name: 'B', label: 'ВЕСЬ ПОЛ ЗАСРАЛ', Icon: HotTubIcon },
+//     { name: 'C', label: 'Я ТЕБЯ ЩА УБЬЮ НАХУЙ', Icon: MoodBadIcon },
+//     { name: 'D', label: 'ТЫ ПОЕХАВШИЙ УЖЕ, ВСЕ', Icon: MenuBookIcon },
+//     { name: 'E', label: 'НАЧАЛЬНИК', Icon: AccessibilityNewIcon },
+//     { name: 'F', label: 'ИДИ ПОД СТРУЮ МОЙСЯ', Icon: BeachAccessIcon },
+//     { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ аз', Icon: SmokingRoomsIcon },
+// ]
 
 let tl2 = [
     {date: '07/02/2021', task: 'Убить мух', group: 'a'},
@@ -85,7 +89,9 @@ function App() {
     return (
         <div>
             <div>
-                <Sidebar items={groups} />
+                <Sidebar
+                    // items={Groups}
+                />
             </div>
             <div>
                 <TaskList items={tl2} />
