@@ -17,6 +17,30 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 
+const enum groupss {
+    'Вилки',
+    'Погоны',
+    'Сладкий хлеб',
+    'Слоники',
+    'Струи',
+    'Цапли',
+    'Шашки'
+}
+const enum icons {
+    FormatShapes,
+    HotTubIcon,
+    MoodBadIcon,
+    MenuBookIcon,
+    AccessibilityNewIcon,
+    BeachAccessIcon,
+    SmokingRoomsIcon
+}
+
+interface Group {
+    name: string;
+    label: string;
+    Icon: React.Component;
+}
 
 let groups = [
     { name: 'A', label: 'АААААААААААА', Icon: FormatShapes },
@@ -26,7 +50,7 @@ let groups = [
     { name: 'E', label: 'НАЧАЛЬНИК', Icon: AccessibilityNewIcon },
     { name: 'F', label: 'ИДИ ПОД СТРУЮ МОЙСЯ', Icon: BeachAccessIcon },
     { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ', Icon: SmokingRoomsIcon },
-] as object[];
+]
 
 let tl2 = [
     {date: '07/02/2021', task: 'Убить мух', group: 'a'},
