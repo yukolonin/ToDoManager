@@ -4,7 +4,6 @@ interface Task {
     date: string;
     task: string;
     group: Groups;
-    // group:string;
 }
 
 export default Task

@@ -2,8 +2,8 @@ import React from 'react';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import Groups from './Groups'
 
+import Groups from './Groups'
 
 import FormatShapes from '@material-ui/icons/FormatShapes';
 import HotTubIcon from '@material-ui/icons/HotTub';

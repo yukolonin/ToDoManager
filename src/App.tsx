@@ -1,12 +1,14 @@
 import React from 'react';
+
 import logo from './logo.svg';
 import './App.css';
-import Sidebar from './Sidebar'
-import TaskList from './TaskList'
-import SideMenu from './SideMenu'
+
 import Groups from './Groups'
-import Task from './Task'
 import InsertDates from "./InsertDates";
+import Sidebar from './Sidebar'
+import SideMenu from './SideMenu'
+import Task from './Task'
+import TaskList from './TaskList'
 
 //-----------------
 
@@ -25,9 +27,7 @@ function App() {
     return (
         <div>
             <div>
-                <Sidebar
-                    // items={Groups}
-                />
+                <Sidebar/>
             </div>
             <div>
                 <TaskList items={tl} />
