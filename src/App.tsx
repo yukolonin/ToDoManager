@@ -21,7 +21,8 @@ let tl: Array<Task> = [
 ]
 InsertDates(tl)
 
-let menuStub = {isNew: false, date: '01/02/2021', task: 'Постоять как головастик', group: 'b'}
+let stubTask: Task = {date: '01/02/2021', task: 'Постоять как головастик', group: Groups.ПОГОНЫ}
+let menuStub: {isNew: boolean, maintask: Task} = {isNew: false, maintask: stubTask}
 
 function App() {
     return (
@@ -33,7 +34,7 @@ function App() {
                 <TaskList items={tl} />
             </div>
             <div>
-                <SideMenu isNew={menuStub.isNew} xdate={menuStub.date} xtask={menuStub.task} xgroup={menuStub.group} tl={tl}/>
+                <SideMenu isNew={menuStub.isNew} maintask={menuStub.maintask} tl={tl}/>
             </div>
         </div>
     )

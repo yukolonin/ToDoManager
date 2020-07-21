@@ -12,25 +12,27 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import TaskAccordion from './TaskAccordion'
+import Task from "./Task";
+import Groups from "./Groups";
 
-function TaskList({items}:any){
+function TaskList(prop: {items: Array<Task>}){
 
     return (
         <div className="task-list">
             <Typography display="inline" className="main-frame-header">Привет, братишка</Typography>
             <Button className="add-button">Курлык</Button>
             <List>
-                {items.map(({date, task, group}:any) => (
-                    group == "DATE" ?
+                {prop.items.map((task: Task) => (
+                    task.group == "DATE" ?
                         <div>
-                            <ListItem key={date}>
-                                <ListItemText>{date}</ListItemText>
+                            <ListItem key={task.date}>
+                                <ListItemText>{task.date}</ListItemText>
                             </ListItem>
                         </div>
                     :
                         <div>
-                            <ListItem key={date}>
-                                <TaskAccordion task={task} date={date} group={group} />
+                            <ListItem key={task.date}>
+                                <TaskAccordion task={task.task} date={task.date} group={task.group} />
                             </ListItem>
                         </div>
                 ))}

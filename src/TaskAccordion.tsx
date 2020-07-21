@@ -7,7 +7,9 @@ import {Button} from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography'
 
-function TaskAccordion({task, date, group}:any){
+import Task from "./Task";
+
+function TaskAccordion(task: Task){
     return (
         <div className="task-accordion">
             <Accordion>
@@ -17,9 +19,9 @@ function TaskAccordion({task, date, group}:any){
                     id="additional-actions1-header"
                 >
                     <Checkbox/>
-                    <Typography>{task}</Typography>
-                    <Typography>{date}</Typography>
-                    <Typography>{group}</Typography>
+                    <Typography>{task.task}</Typography>
+                    <Typography>{task.date}</Typography>
+                    <Typography>{task.group}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Button>Edit</Button>

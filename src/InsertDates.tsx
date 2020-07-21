@@ -20,7 +20,6 @@ function InsertDates(tasklist: Array<Task>) {
     for(let i: number = 0; i < dates.length; i++){
         tasklist.splice(dates[i], 0, {date: tasklist[dates[i]].date, task: '', group: Groups.DATE})
     }
-
     return tasklist
 }
 

@@ -4,11 +4,14 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import {Button} from '@material-ui/core'
+
 import TaskAccordion from './TaskAccordion'
+import Task from "./Task";
 // Calendar
 // Drop list
 
-function SideMenu({isNew, xdate, xtask, xgroup, tl}:any) {
+
+function SideMenu(prop: {isNew: boolean, maintask: Task, tl: Array<Task>}) {
     return (
         <div className="side-menu">
             <Typography>Edit task</Typography>
@@ -18,10 +21,8 @@ function SideMenu({isNew, xdate, xtask, xgroup, tl}:any) {
             <Button>Cancel</Button>
             <Button>Ok</Button>
 
-            {isNew == true
-                ?
-                    <></>
-                :
+            {prop.isNew == true
+                ? <></> :
                     <div>
                         <List>
                             <ListItem>
@@ -30,14 +31,13 @@ function SideMenu({isNew, xdate, xtask, xgroup, tl}:any) {
                                 </div>
                             </ListItem>
                         {/* Similar tasks appear if menu is called by "Edit" button */}
-                            {tl.map(({date, task, group}:any) => (
-                                task.split(' ')[0] == xtask.split(' ')[0]
+                            {prop.tl.map((task: Task) => (
+                                task.task.split(' ')[0] == prop.maintask.task.split(' ')[0]
                                     ?
-                                        <TaskAccordion task={task} date={date} group={group}/>
+                                        <TaskAccordion task={task.task} date={task.date} group={task.group}/>
                                     :
                                         <></>
                             ))}
-
                         </List>
                     </div>
             }
