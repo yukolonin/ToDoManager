@@ -57,6 +57,8 @@ function IconSwitch(group: Groups){
                     <SmokingRoomsIcon height="10px" width="10px"/>
                 </div>
             )
+        case 'DATE':
+            return (<></>)
     }
 }
 
@@ -67,6 +69,7 @@ function Sidebar() {
             <List disablePadding dense>
                 <ListItem button autoFocus>All groups</ListItem>
                 {Object.values(Groups).map((value: Groups) => (
+                    value == Groups.DATE ? <></> : // tight spot
                         <ListItem key={value} button>
                             {IconSwitch(value)}
                             <div className="sidebar-text">

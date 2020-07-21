@@ -5,85 +5,21 @@ import Sidebar from './Sidebar'
 import TaskList from './TaskList'
 import SideMenu from './SideMenu'
 import Groups from './Groups'
-
-import FormatShapes from '@material-ui/icons/FormatShapes';
-import HotTubIcon from '@material-ui/icons/HotTub';
-import MoodBadIcon from '@material-ui/icons/MoodBad';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-import SmokingRoomsIcon from '@material-ui/icons/SmokingRooms';
-
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Task from './Task'
+import InsertDates from "./InsertDates";
 
 //-----------------
 
-//
-// enum Groups {
-//     'ВИЛКИ' = 'Вилки',
-//     'ПОГОНЫ' = 'Погоны',
-//     'СЛАДКИЙ ХЛЕБ' = 'Сладкий хлеб',
-//     'СЛОНИКИ' = 'Слоники',
-//     'СТРУИ' = 'Струи',
-//     'ЦАПЛИ' = 'Цапли',
-//     'ШАШКИ' = 'Шашки'
-// }
-// const enum icons {
-//     FormatShapes,
-//     HotTubIcon,
-//     MoodBadIcon,
-//     MenuBookIcon,
-//     AccessibilityNewIcon,
-//     BeachAccessIcon,
-//     SmokingRoomsIcon
-// }
-
-// interface Group {
-//     name: string;
-//     label: string;
-//     Icon: React.Component;
-// }
-
-// let groups = [
-//     { name: 'A', label: 'АААААААААААА', Icon: FormatShapes },
-//     { name: 'B', label: 'ВЕСЬ ПОЛ ЗАСРАЛ', Icon: HotTubIcon },
-//     { name: 'C', label: 'Я ТЕБЯ ЩА УБЬЮ НАХУЙ', Icon: MoodBadIcon },
-//     { name: 'D', label: 'ТЫ ПОЕХАВШИЙ УЖЕ, ВСЕ', Icon: MenuBookIcon },
-//     { name: 'E', label: 'НАЧАЛЬНИК', Icon: AccessibilityNewIcon },
-//     { name: 'F', label: 'ИДИ ПОД СТРУЮ МОЙСЯ', Icon: BeachAccessIcon },
-//     { name: 'G', label: 'РАЗ РАЗ РАЗ РАЗ РАЗ аз', Icon: SmokingRoomsIcon },
-// ]
-
-let tl2 = [
-    {date: '07/02/2021', task: 'Убить мух', group: 'a'},
-    {date: '07/02/2021', task: 'Забрать погону', group: 'b'},
-    {date: '01/02/2021', task: 'Помыться под струей', group: 'b'},
-    {date: '07/02/2021', task: 'Постоять как цапля', group: 'a'},
-    {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: 'c'}
+let tl: Array<Task> = [
+    {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
+    {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
+    {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
+    {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
+    {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
 ]
+InsertDates(tl)
 
-tl2.sort(function(a:any, b:any){
-    let aa = a.date.split('/').reverse().join(),
-        bb = b.date.split('/').reverse().join();
-    return aa < bb ? -1 : (aa > bb ? 1 : 0);
-});
-
-let dates = []
-let currentDate = '0'
-for(let i = 0; i < tl2.length; i++){
-    if (currentDate != tl2[i].date) {
-        currentDate = tl2[i].date
-        dates.push(i)
-    }
-} // Now "dates" represent places where date should be inserted
-dates.reverse() // Reverse "dates" to not mess up the numeration while inserting values in array
-for(let i = 0; i < dates.length; i++){
-    tl2.splice(dates[i], 0, {date: tl2[dates[i]].date, task: '', group:'DATE'})
-}
-
-let menuStub = {isNew: false, date: '01/02/2021', task: 'Постоять как слоник', group: 'b'}
+let menuStub = {isNew: false, date: '01/02/2021', task: 'Постоять как головастик', group: 'b'}
 
 function App() {
     return (
@@ -94,10 +30,10 @@ function App() {
                 />
             </div>
             <div>
-                <TaskList items={tl2} />
+                <TaskList items={tl} />
             </div>
             <div>
-                <SideMenu isNew={menuStub.isNew} xdate={menuStub.date} xtask={menuStub.task} xgroup={menuStub.group} tl={tl2}/>
+                <SideMenu isNew={menuStub.isNew} xdate={menuStub.date} xtask={menuStub.task} xgroup={menuStub.group} tl={tl}/>
             </div>
         </div>
     )
