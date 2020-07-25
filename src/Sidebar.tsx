@@ -22,13 +22,13 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <List disablePadding dense>
-                {/*<ListItem button autoFocus>All groups</ListItem>*/}
                 {Object.values(Groups).map((value: Groups) => (
-                    value == Groups.DATE ? <></> :
-                        // <SidebarItem group={value} />
+                    value === Groups.DATE ? <></> :
 
                         // TODO(DONE): SidebarItem element
                         // Was a bad idea because setSelectedIndex for each item worked separately
+                        // <SidebarItem group={value} />
+
                         <ListItem
                             key={value}
                             button

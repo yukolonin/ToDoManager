@@ -14,15 +14,18 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TaskAccordion from './TaskAccordion'
 import Task from "./Task";
 import Groups from "./Groups";
+import InsertDates from "./InsertDates";
 
-function TaskList(prop: {items: Array<Task>}){
+function TaskList(prop: {items: Array<Task>, group: Groups}){
+
+    let tasklistout: Array<Task> = InsertDates(prop.items, prop.group)
 
     return (
         <div className="task-list">
             <Typography display="inline" className="main-frame-header">Привет, братишка</Typography>
             <Button className="add-button">Курлык</Button>
             <List>
-                {prop.items.map((task: Task) => (
+                {tasklistout.map((task: Task) => (
                     task.group == "DATE" || task.group == "All" ?
                         <div>
                             <ListItem key={task.date}>

@@ -17,7 +17,7 @@ export default function SelectGroup2() {
                 <InputLabel>Group</InputLabel>
                 <Select>
                     {Object.values(Groups).map((value: Groups) => (
-                        value == Groups.DATE ? <></> : // tight spot
+                        value == Groups.DATE || value == Groups.ALL ? <></> : // tight spot
                         <MenuItem value={value}>{value}</MenuItem>
                     ))}
                 </Select>

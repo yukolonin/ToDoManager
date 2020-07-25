@@ -4,7 +4,14 @@ import Groups from './Groups'
 import Task from './Task'
 import SortByDate from "./SortByDate";
 
-function InsertDates(tasklist: Array<Task>) {
+// TODO Rename module
+function InsertDates(tasklist: Array<Task>, group: Groups) {
+
+    //cut elements from all groups except needed
+    if (group !== Groups.ALL) {
+        tasklist = tasklist.filter(task => task.group === group);
+    }
+
     SortByDate(tasklist)
 
     let dates: Array<number> = []

@@ -1,15 +1,11 @@
 import React from 'react';
-
-import logo from './logo.svg';
 import './App.css';
 
 import Groups from './Groups'
-import InsertDates from "./InsertDates";
 import Sidebar from './Sidebar'
 import SideMenu from './SideMenu'
 import Task from './Task'
 import TaskList from './TaskList'
-
 
 
 //-----------------
@@ -21,7 +17,7 @@ let tl: Array<Task> = [
     {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
 ]
-InsertDates(tl)
+// InsertDates(tl)
 
 let stubTask: Task = {date: '01/02/2021', task: 'Постоять как братишка', group: Groups.ПОГОНЫ}
 let menuStub: {isNew: boolean, maintask: Task} = {isNew: false, maintask: stubTask}
@@ -33,7 +29,7 @@ function App() {
                 <Sidebar/>
             </div>
             <div>
-                <TaskList items={tl} />
+                <TaskList items={tl} group={Groups.ПОГОНЫ}/>
             </div>
             <div>
                 <SideMenu isNew={menuStub.isNew} maintask={menuStub.maintask} tl={tl}/>
