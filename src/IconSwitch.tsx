@@ -8,6 +8,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import SmokingRoomsIcon from '@material-ui/icons/SmokingRooms';
+import InboxIcon from '@material-ui/icons/Inbox';
 
 function IconSwitch(group: Groups){
     switch(group) {
@@ -41,6 +42,8 @@ function IconSwitch(group: Groups){
             )
         case 'DATE':
             return (<></>)
+        case 'All':
+            return <InboxIcon />
     }
 }
 export default IconSwitch

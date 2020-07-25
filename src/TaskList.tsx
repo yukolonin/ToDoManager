@@ -23,7 +23,7 @@ function TaskList(prop: {items: Array<Task>}){
             <Button className="add-button">Курлык</Button>
             <List>
                 {prop.items.map((task: Task) => (
-                    task.group == "DATE" ?
+                    task.group == "DATE" || task.group == "All" ?
                         <div>
                             <ListItem key={task.date}>
                                 <ListItemText>{task.date}</ListItemText>

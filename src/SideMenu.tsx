@@ -39,7 +39,7 @@ function SideMenu(prop: {isNew: boolean, maintask: Task, tl: Array<Task>}) {
                     <InputLabel>Group</InputLabel>
                     <Select>
                         {Object.values(Groups).map((value: Groups) => (
-                            value == Groups.DATE ? <></> : // tight spot
+                            value == Groups.DATE || value == Groups.ALL ? <></> :
                                 <MenuItem value={value}>{value}</MenuItem>
                         ))}
                     </Select>
