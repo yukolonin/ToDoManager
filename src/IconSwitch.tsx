@@ -13,45 +13,31 @@ function IconSwitch(group: Groups){
     switch(group) {
         case 'Вилки':
             return (
-                <div className="sidebar-icon">
-                    <FormatShapes height="10px" width="10px"/>
-                </div>
+                <FormatShapes />
             )
         case 'Погоны':
             return (
-                <div className="sidebar-icon">
-                    <HotTubIcon height="10px" width="10px"/>
-                </div>
+                <HotTubIcon />
             )
         case 'Сладкий хлеб':
             return (
-                <div className="sidebar-icon">
-                    <MoodBadIcon height="10px" width="10px"/>
-                </div>
+                <MoodBadIcon />
             )
         case 'Слоники':
             return (
-                <div className="sidebar-icon">
-                    <MenuBookIcon height="10px" width="10px"/>
-                </div>
+                <MenuBookIcon />
             )
         case 'Струи':
             return (
-                <div className="sidebar-icon">
-                    <AccessibilityNewIcon height="10px" width="10px"/>
-                </div>
+                <AccessibilityNewIcon />
             )
         case 'Цапли':
             return (
-                <div className="sidebar-icon">
-                    <BeachAccessIcon height="10px" width="10px"/>
-                </div>
+                    <BeachAccessIcon />
             )
         case 'Шашки':
             return (
-                <div className="sidebar-icon">
-                    <SmokingRoomsIcon height="10px" width="10px"/>
-                </div>
+                <SmokingRoomsIcon />
             )
         case 'DATE':
             return (<></>)

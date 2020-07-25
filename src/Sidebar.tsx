@@ -2,6 +2,7 @@ import React from 'react';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
 
 import Groups from './Groups'
 import IconSwitch from "./IconSwitch";
@@ -15,7 +16,9 @@ function Sidebar() {
                 {Object.values(Groups).map((value: Groups) => (
                     value == Groups.DATE ? <></> :
                         <ListItem key={value} button>
-                            {IconSwitch(value)}
+                            <ListItemIcon>
+                                {IconSwitch(value)}
+                            </ListItemIcon>
                             <div className="sidebar-text">
                                 <ListItemText>{value}</ListItemText>
                             </div>
