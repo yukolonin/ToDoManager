@@ -17,7 +17,6 @@ let tl: Array<Task> = [
     {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
 ]
-// InsertDates(tl)
 
 let stubTask: Task = {date: '01/02/2021', task: 'Постоять как братишка', group: Groups.ПОГОНЫ}
 let menuStub: {isNew: boolean, maintask: Task} = {isNew: false, maintask: stubTask}
@@ -28,9 +27,9 @@ function App() {
             <div>
                 <Sidebar/>
             </div>
-            <div>
-                <TaskList items={tl} group={Groups.ПОГОНЫ}/>
-            </div>
+            {/*<div>*/}
+            {/*    <TaskList items={tl} group={Groups.ALL}/>*/}
+            {/*</div>*/}
             <div>
                 <SideMenu isNew={menuStub.isNew} maintask={menuStub.maintask} tl={tl}/>
             </div>
