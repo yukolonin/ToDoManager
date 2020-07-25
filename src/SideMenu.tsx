@@ -5,19 +5,47 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import {Button} from '@material-ui/core'
 
+import TextField from '@material-ui/core/TextField'
+import Select from '@material-ui/core/TextField'
 import TaskAccordion from './TaskAccordion'
 import Task from "./Task";
-// Calendar
-// Drop list
+import Groups from "./Groups";
 
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+
+
+import SelectGroup from "./SelectGroup";
+import SelectGroup2 from "./SelectGroup2";
 
 function SideMenu(prop: {isNew: boolean, maintask: Task, tl: Array<Task>}) {
     return (
         <div className="side-menu">
             <Typography>Edit task</Typography>
-            {/*text box*/}
-            {/*calendar*/}
-            {/*drop list*/}
+            <TextField id="task-description" label="Task" />
+            {/*Instead of DatePicker module for now */}
+            <TextField id="task-date" label="--/--/----" />
+
+            <SelectGroup/>
+            <SelectGroup2/>
+
+            <br/><br/>
+
+            <div>
+                <FormControl>
+                    <InputLabel>Group</InputLabel>
+                    <Select>
+                        {Object.values(Groups).map((value: Groups) => (
+                            value == Groups.DATE ? <></> : // tight spot
+                                <MenuItem value={value}>{value}</MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
+
             <Button>Cancel</Button>
             <Button>Ok</Button>
 

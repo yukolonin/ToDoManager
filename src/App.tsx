@@ -10,6 +10,8 @@ import SideMenu from './SideMenu'
 import Task from './Task'
 import TaskList from './TaskList'
 
+
+
 //-----------------
 
 let tl: Array<Task> = [
@@ -21,7 +23,7 @@ let tl: Array<Task> = [
 ]
 InsertDates(tl)
 
-let stubTask: Task = {date: '01/02/2021', task: 'Постоять как головастик', group: Groups.ПОГОНЫ}
+let stubTask: Task = {date: '01/02/2021', task: 'Постоять как братишка', group: Groups.ПОГОНЫ}
 let menuStub: {isNew: boolean, maintask: Task} = {isNew: false, maintask: stubTask}
 
 function App() {
