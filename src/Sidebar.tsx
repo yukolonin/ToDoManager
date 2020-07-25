@@ -10,23 +10,38 @@ import SidebarItem from "./SidebarItem";
 
 function Sidebar() {
 
+    const [selectedIndex, setSelectedIndex] = React.useState('All');
+
+    const handleListItemClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        index: string,
+    ) => {
+        setSelectedIndex(index);
+    };
+
     return (
         <div className="sidebar">
             <List disablePadding dense>
                 {/*<ListItem button autoFocus>All groups</ListItem>*/}
                 {Object.values(Groups).map((value: Groups) => (
                     value == Groups.DATE ? <></> :
-                        <SidebarItem group={value} />
+                        // <SidebarItem group={value} />
 
                         // TODO(DONE): SidebarItem element
-                        // <ListItem key={value} button>
-                        //     <ListItemIcon>
-                        //         {IconSwitch(value)}
-                        //     </ListItemIcon>
-                        //     <div className="sidebar-text">
-                        //         <ListItemText>{value}</ListItemText>
-                        //     </div>
-                        // </ListItem>
+                        // Was a bad idea because setSelectedIndex for each item worked separately
+                        <ListItem
+                            key={value}
+                            button
+                            selected={selectedIndex === value}
+                            onClick={(event) => handleListItemClick(event, value)}
+                        >
+                            <ListItemIcon>
+                                {IconSwitch(value)}
+                            </ListItemIcon>
+                            <div className="sidebar-text">
+                                <ListItemText>{value}</ListItemText>
+                            </div>
+                        </ListItem>
 
                 ))}
             </List>
