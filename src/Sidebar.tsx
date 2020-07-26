@@ -33,26 +33,16 @@ function Sidebar() {
             <List disablePadding dense>
                 {Object.values(Groups).map((value: Groups) => (
                     value === Groups.DATE ? <></> :
-                        
+
                         <SidebarItem
                         group={value}
                         selected={selectedIndex === value}
-                        onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => handleListItemClick(event, value)}
+                        onClick={(
+                            event: React.MouseEvent<HTMLDivElement, MouseEvent>
+                        ) =>
+                            handleListItemClick(event, value)
+                        }
                         />
-
-                        // <ListItem
-                        //     key={value}
-                        //     button
-                        //     selected={selectedIndex === value}
-                        //     onClick={(event) => handleListItemClick(event, value)}
-                        // >
-                        //     <ListItemIcon>
-                        //         {IconSwitch(value)}
-                        //     </ListItemIcon>
-                        //     <div className="sidebar-text">
-                        //         <ListItemText>{value}</ListItemText>
-                        //     </div>
-                        // </ListItem>
 
                 ))}
             </List>
