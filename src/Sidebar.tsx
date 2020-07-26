@@ -33,30 +33,34 @@ function Sidebar() {
             <List disablePadding dense>
                 {Object.values(Groups).map((value: Groups) => (
                     value === Groups.DATE ? <></> :
+                        
+                        <SidebarItem
+                        group={value}
+                        selected={selectedIndex === value}
+                        onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => handleListItemClick(event, value)}
+                        />
 
-                        // TODO(DONE): SidebarItem element
-                        // Was a bad idea because setSelectedIndex for each item worked separately
-                        // <SidebarItem group={value} />
-
-                        <ListItem
-                            key={value}
-                            button
-                            selected={selectedIndex === value}
-                            onClick={(event) => handleListItemClick(event, value)}
-                        >
-                            <ListItemIcon>
-                                {IconSwitch(value)}
-                            </ListItemIcon>
-                            <div className="sidebar-text">
-                                <ListItemText>{value}</ListItemText>
-                            </div>
-                        </ListItem>
+                        // <ListItem
+                        //     key={value}
+                        //     button
+                        //     selected={selectedIndex === value}
+                        //     onClick={(event) => handleListItemClick(event, value)}
+                        // >
+                        //     <ListItemIcon>
+                        //         {IconSwitch(value)}
+                        //     </ListItemIcon>
+                        //     <div className="sidebar-text">
+                        //         <ListItemText>{value}</ListItemText>
+                        //     </div>
+                        // </ListItem>
 
                 ))}
             </List>
+
             <div>
                 <TaskList items={tl} group={selectedIndex}/>
             </div>
+
         </div>
     )
 }
