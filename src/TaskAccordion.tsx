@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import Task from "./Task";
 
 function TaskAccordion(prop: {task: Task}){
+// function TaskAccordion(prop: {task: Task, onNewClick: any, onEditClick: any, onOkClick: any, onDiscardClick: any}){
     return (
         <div className="task-accordion">
             <Accordion>

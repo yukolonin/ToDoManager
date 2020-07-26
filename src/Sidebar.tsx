@@ -19,7 +19,7 @@ function Sidebar() {
         {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
     ]
 
-    const [selectedIndex, setSelectedIndex] = React.useState(Groups.ALL);
+    const [selectedIndex, setSelectedIndex] = React.useState<Groups>(Groups.ALL);
 
     const handleListItemClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,

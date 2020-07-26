@@ -15,6 +15,7 @@ import TaskAccordion from './TaskAccordion'
 import Task from "./Task";
 import Groups from "./Groups";
 import InsertDates from "./InsertDates";
+import SideMenu from "./SideMenu";
 
 
 function TaskList(prop: {items: Array<Task>, group: Groups}){
@@ -26,6 +27,54 @@ function TaskList(prop: {items: Array<Task>, group: Groups}){
         {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
         {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
     ]
+
+    const [taskList, setTaskList] = React.useState<Array<Task>>([]);
+    const [menuOn, setMenuOn] = React.useState<boolean>(false);
+
+    const handleEditClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        task: Task
+    ) => {
+        setMenuOn(true);
+        return <SideMenu isNew={false} maintask={task} tl={taskList}/>
+    };
+
+    const handleOkClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        task: Task,
+        isNew: boolean,
+        taskList: Array<Task>
+    ) => {
+        if (isNew) {
+            taskList.push(task) // Might work wrong, dunno
+        }
+        else {
+            // Updating the task by replacing it in array via splice
+            for (let i = 0; i < taskList.length; i++) {
+                if (taskList[i].task === task.task) {
+                    taskList.splice(i, 1, task) // Might work wrong, dunno
+                }
+            }
+        }
+        setTaskList(taskList);
+        setMenuOn(false);
+    };
+
+    const handleDiscardClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        task: Task
+    ) => {
+        setMenuOn(true);
+    };
+
+    const handleNewClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        task: Task
+    ) => {
+        setMenuOn(true);
+        return <SideMenu isNew={true} maintask={task} tl={taskList}/> // Might need to edit props
+    };
+
 
     let tasklistout: Array<Task> = InsertDates(prop.items, prop.group)
 
