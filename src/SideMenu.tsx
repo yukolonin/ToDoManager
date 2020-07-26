@@ -62,7 +62,8 @@ function SideMenu(prop: {isNew: boolean, maintask: Task, tl: Array<Task>}) {
                             {prop.tl.map((task: Task) => (
                                 task.task.split(' ')[0] == prop.maintask.task.split(' ')[0]
                                     ?
-                                        <TaskAccordion task={task.task} date={task.date} group={task.group}/>
+                                        <TaskAccordion task={task} />
+                                    // <TaskAccordion task={task.task} date={task.date} group={task.group}/>
                                     :
                                         <></>
                             ))}

@@ -16,7 +16,16 @@ import Task from "./Task";
 import Groups from "./Groups";
 import InsertDates from "./InsertDates";
 
+
 function TaskList(prop: {items: Array<Task>, group: Groups}){
+
+    let tl: Array<Task> = [
+        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
+        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
+        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
+        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
+        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
+    ]
 
     let tasklistout: Array<Task> = InsertDates(prop.items, prop.group)
 
@@ -35,7 +44,8 @@ function TaskList(prop: {items: Array<Task>, group: Groups}){
                     :
                         <div>
                             <ListItem key={task.date}>
-                                <TaskAccordion task={task.task} date={task.date} group={task.group} />
+                                <TaskAccordion task={task} />
+                                {/*<TaskAccordion task={task.task} date={task.date} group={task.group} />*/}
                             </ListItem>
                         </div>
                 ))}
