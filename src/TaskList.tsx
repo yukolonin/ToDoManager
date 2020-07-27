@@ -18,7 +18,7 @@ import InsertDates from "./InsertDates";
 import SideMenu from "./SideMenu";
 
 
-function TaskList(prop: {items: Array<Task>, group: Groups}){
+function TaskList(prop: {group: Groups}){
 
     let tl: Array<Task> = [
         {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
@@ -28,7 +28,13 @@ function TaskList(prop: {items: Array<Task>, group: Groups}){
         {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
     ]
 
-    const [taskList, setTaskList] = React.useState<Array<Task>>([]);
+    const [taskList, setTaskList] = React.useState<Array<Task>>([
+        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
+        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
+        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
+        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
+        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
+    ]);
     const [menuOn, setMenuOn] = React.useState<boolean>(false);
 
     const handleNewClick = (
@@ -41,82 +47,22 @@ function TaskList(prop: {items: Array<Task>, group: Groups}){
             isNew={true}
             maintask={task}
             tl={taskList}
-            onOkClick={(
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            ) =>
-                handleOkClick(event, task, task, true, tl)
-            }
-            onDiscardClick={(
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            ) =>
-                handleDiscardClick(event, task)
-            }
+            setMenuOn={setMenuOn}
+            setTaskList={setTaskList}
         /> // Might need to edit props
     };
 
-    const handleEditClick = ( //TODO: Refactor
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        oldTask: Task,
-        newTask: Task
-    ) => {
-        setMenuOn(true);
-        // Would it work as I imagine?
-        return <SideMenu
-            isNew={false}
-            maintask={oldTask}
-            tl={taskList}
-            onOkClick={(
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            ) =>
-                handleOkClick(event, oldTask, newTask,false, tl)
-            }
-            onDiscardClick={(
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            ) =>
-                handleDiscardClick(event, oldTask)
-            }
-        />
-    };
-
-    const handleOkClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        oldTask: Task,
-        newTask: Task, // New task data
-        isNew: boolean,
-        taskList: Array<Task>
-    ) => {
-        if (isNew) {
-            taskList.push(newTask) // Might work wrong, dunno
-        }
-        else {
-            // Updating the task by replacing it in array via splice
-            for (let i = 0; i < taskList.length; i++) {
-                if (taskList[i].task === oldTask.task) {
-                    taskList.splice(i, 1, newTask) // Might work wrong, dunno
-                }
-            }
-        }
-
-        // Can I rewrite all the function to arrow-style setTaskList? Should I? :---)
-        setTaskList(taskList);
-        setMenuOn(false);
-    };
-
-    const handleDiscardClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        task: Task
-    ) => {
-        setMenuOn(false);
-    };
-
-
-    let tasklistout: Array<Task> = InsertDates(tl, prop.group)
+    let tasklistout: Array<Task> = InsertDates(taskList, prop.group)
     // let tasklistout: Array<Task> = InsertDates(prop.items, prop.group)
 
     return (
         <div className="task-list">
             <Typography display="inline" className="main-frame-header">Привет, братишка</Typography>
-            <Button className="add-button">Курлык</Button>
+            <Button
+                className="add-button"
+            >
+                Курлык
+            </Button>
             <List>
                 {tasklistout.map((task: Task) => (
                     task.group == "DATE" || task.group == "All" ?
@@ -131,27 +77,10 @@ function TaskList(prop: {items: Array<Task>, group: Groups}){
                                 <TaskAccordion
                                     task={task}
                                     menuOn={false}
-                                    taskList={tl}
-                                    // onNewClick={(
-                                    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                                    // ) =>
-                                    //     handleNewClick(event, task)
-                                    // }
-                                    onEditClick={(
-                                        event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                                    ) =>
-                                        handleEditClick(event, task, task)
-                                    }
-                                    onOkClick={(
-                                        event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                                    ) =>
-                                        handleOkClick(event, task, task, false, tl)
-                                    }
-                                    onDiscardClick={(
-                                        event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                                    ) =>
-                                        handleDiscardClick(event, task)
-                                    }
+                                    taskList={taskList}
+                                    setMenuOn={setMenuOn}
+                                    setTaskList={setTaskList}
+
                                 />
 
                                 {/*<TaskAccordion task={task} />*/}

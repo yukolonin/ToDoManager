@@ -48,7 +48,8 @@ function Sidebar() {
             </List>
 
             <div>
-                <TaskList items={tl} group={selectedIndex}/>
+                {/*<TaskList items={tl} group={selectedIndex}/>*/}
+                <TaskList group={selectedIndex}/>
             </div>
 
         </div>

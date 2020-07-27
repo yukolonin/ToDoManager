@@ -30,9 +30,10 @@ function App() {
             {/*<div>*/}
             {/*    <TaskList items={tl} group={Groups.ALL}/>*/}
             {/*</div>*/}
-            <div>
-                <SideMenu isNew={menuStub.isNew} maintask={menuStub.maintask} tl={tl}/>
-            </div>
+
+            {/*<div>*/}
+            {/*    <SideMenu isNew={menuStub.isNew} maintask={menuStub.maintask} tl={tl}/>*/}
+            {/*</div>*/}
         </div>
     )
 }
