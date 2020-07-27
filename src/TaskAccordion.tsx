@@ -8,9 +8,18 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography'
 
 import Task from "./Task";
+import SideMenu from "./SideMenu";
 
-function TaskAccordion(prop: {task: Task}){
-// function TaskAccordion(prop: {task: Task, onNewClick: any, onEditClick: any, onOkClick: any, onDiscardClick: any}){
+// function TaskAccordion(prop: {task: Task}){
+function TaskAccordion(prop: {
+    task: Task,
+    menuOn: boolean,
+    taskList: Array<Task>,
+    // onNewClick: any,
+    onEditClick: any,
+    onOkClick: any,
+    onDiscardClick: any
+}) {
     return (
         <div className="task-accordion">
             <Accordion>
@@ -28,6 +37,7 @@ function TaskAccordion(prop: {task: Task}){
                     <Button>Edit</Button>
                 </AccordionDetails>
             </Accordion>
+            {/*{menuOn && <SideMenu/>} PROPS, MENUON*/}
         </div>
     )
 }
