@@ -1,24 +1,10 @@
 import React from 'react';
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import {Button} from '@material-ui/core'
 
 import TextField from '@material-ui/core/TextField'
-import Select from '@material-ui/core/TextField'
-import TaskAccordion from './TaskAccordion'
 import Task from "./Task";
 import Groups from "./Groups";
-
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-
-
-import SelectGroup from "./SelectGroup";
 import SelectGroup2 from "./SelectGroup2";
 import DefaultTask from "./DefaultTask";
 
@@ -32,17 +18,45 @@ function SideMenu(prop: {
     setSideTask: any
 }) {
 
-    let oldTask: Task = DefaultTask;
+    const oldTask: Task = DefaultTask;
     Object.assign(oldTask, prop.task);
 
-    // Seems like all good for the moment
+    let newTask: Task = DefaultTask;
+    Object.assign(newTask, prop.task);
+
+    const [date, setDate] = React.useState<string>(prop.task.date);
+    const [task, setTask] = React.useState<string>(prop.task.task);
+    const [group, setGroup] = React.useState(prop.task.group);
+
+    const handleDateChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setDate(event.target.value);
+    };
+
+    const handleTaskChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setTask(event.target.value);
+    };
+
+    // const handleGroupChange = (
+    //     event: React.ChangeEvent<HTMLInputElement>
+    // ) => {
+    //     // let zzz = Groups[event.target.value];
+    //     setGroup(event.target.value);
+    // };
+
     const handleOkClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
         oldTask: Task,
-        newTask: Task, // New task data
+        newTask: Task, // Probably unnecessary
         isNew: boolean,
         taskList: Array<Task>
     ) => {
+
+        newTask = {date: date, task: task, group: group}
+
         if (isNew) { // TODO Refactor !!!
             prop.setTaskList([...taskList, newTask]) // Tight spot
         }
@@ -70,32 +84,28 @@ function SideMenu(prop: {
     return (
         <div className="side-menu">
             <Typography>Edit task</Typography>
-            <TextField id="task-description" label="Task" />
+
+            <TextField
+                id="task-description"
+                label="Task"
+                onChange={handleTaskChange}
+            />
+
             {/*Instead of DatePicker module for now */}
-            <TextField id="task-date" label="--/--/----" />
+            <TextField
+                id="task-date"
+                label="--/--/----"
+                onChange={handleDateChange}
+            />
 
-            {/*<SelectGroup/>*/}
             <SelectGroup2/>
-
-            {/*<br/><br/>*/}
-
-            {/*<div>*/}
-            {/*    <FormControl>*/}
-            {/*        <InputLabel>Group</InputLabel>*/}
-            {/*        <Select>*/}
-            {/*            {Object.values(Groups).map((value: Groups) => (*/}
-            {/*                value == Groups.DATE || value == Groups.ALL ? <></> :*/}
-            {/*                    <MenuItem value={value}>{value}</MenuItem>*/}
-            {/*            ))}*/}
-            {/*        </Select>*/}
-            {/*    </FormControl>*/}
-            {/*</div>*/}
 
             <Button
                 onClick={(event: any) => {handleDiscardClick(event)}}
             >
                 Cancel
             </Button>
+
             <Button
                 onClick={(event: any) => {handleOkClick(
                     event,
