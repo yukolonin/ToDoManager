@@ -27,29 +27,9 @@ function TaskList(prop: {group: Groups}){
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
         setMenuOn(true);
-        // Would it work as I imagine?
-        // return <SideMenu
-        //     isNew={true}
-        //     maintask={{date: '--/--/----', task: '', group: Groups.ВИЛКИ}}
-        //     tl={taskList}
-        //     setMenuOn={setMenuOn}
-        //     setTaskList={setTaskList}
-        // />
-
-        // return <div>
-        //     <Typography>Курлык</Typography>
-        //     <Typography>Курлык</Typography>
-        //     <Typography>Курлык</Typography>
-        // </div>
-
-        return <></>
-
     };
 
-    // let taskListOut = taskList;
-    // let tasklistout: Array<Task> = InsertDates(taskList, prop.group)
-    // let tasklistout2: Array<Task> = InsertDates(taskList, prop.group)
-    // let tasklistout: Array<Task> = InsertDates(prop.items, prop.group)
+    let taskListOut = taskList.map((a) => (a))
 
     return (
         <div className="task-list">
@@ -68,7 +48,7 @@ function TaskList(prop: {group: Groups}){
             </Button>
 
             <List>
-                {InsertDates(taskList, prop.group).map((task: Task) => (
+                {InsertDates(taskListOut, prop.group).map((task: Task) => (
                     task.group == "DATE" || task.group == "All" ?
                         <div>
                             <ListItem key={task.date}>
@@ -78,17 +58,24 @@ function TaskList(prop: {group: Groups}){
                     :
                         <div>
                             <ListItem key={task.date}>
-                                {/*<TaskAccordion*/}
-                                {/*    task={task}*/}
-                                {/*    menuOn={false}*/}
-                                {/*    taskList={taskList}*/}
-                                {/*    setMenuOn={setMenuOn}*/}
-                                {/*    setTaskList={setTaskList}*/}
-                                {/*/>*/}
+                                <TaskAccordion
+                                    task={task}
+                                    menuOn={menuOn}
+                                    taskList={taskList}
+                                    setMenuOn={setMenuOn}
+                                    setTaskList={setTaskList}
+                                />
                             </ListItem>
                         </div>
                 ))}
             </List>
+            {/*{menuOn && <SideMenu*/}
+            {/*    isNew={true}*/}
+            {/*    maintask={{date: '', task: '', group: Groups.ВИЛКИ}}*/}
+            {/*    tl={taskList}*/}
+            {/*    setMenuOn={setMenuOn}*/}
+            {/*    setTaskList={setTaskList}*/}
+            {/*/>}*/}
         </div>
     )
 }

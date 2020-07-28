@@ -22,27 +22,17 @@ function TaskAccordion(prop: {
 
     const handleEditClick = ( //TODO: Impement in TA body
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        task: Task
+        // task: Task
     ) => {
         prop.setMenuOn(true);
         // Would it work as I imagine?
-        return <SideMenu
-            isNew={false}
-            maintask={task}
-            tl={prop.taskList}
-            setMenuOn={prop.setMenuOn}
-            setTaskList={prop.setTaskList}
-            // onOkClick={(
-            //     event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            // ) =>
-            //     handleOkClick(event, oldTask, newTask,false, tl)
-            // }
-            // onDiscardClick={(
-            //     event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            // ) =>
-            //     handleDiscardClick(event, oldTask)
-            // }
-        />
+        // return <SideMenu
+        //     isNew={false}
+        //     maintask={task}
+        //     tl={prop.taskList}
+        //     setMenuOn={prop.setMenuOn}
+        //     setTaskList={prop.setTaskList}
+        // />
     };
 
     return (
@@ -59,10 +49,21 @@ function TaskAccordion(prop: {
                     <Typography>{prop.task.group}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button>Edit</Button>
+                    <Button
+                        onClick={(event: any) => {handleEditClick(event)}}
+                    >
+                        Edit
+                    </Button>
                 </AccordionDetails>
             </Accordion>
-            {/*{menuOn && <SideMenu/>} PROPS, MENUON*/}
+
+            {/*{prop.menuOn && <SideMenu*/}
+            {/*    isNew={false}*/}
+            {/*    maintask={prop.task}*/}
+            {/*    tl={prop.taskList}*/}
+            {/*    setMenuOn={prop.setMenuOn}*/}
+            {/*    setTaskList={prop.setTaskList}*/}
+            {/*/>}*/}
         </div>
     )
 }

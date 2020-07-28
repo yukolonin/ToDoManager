@@ -37,7 +37,7 @@ function SideMenu(prop: {
         isNew: boolean,
         taskList: Array<Task>
     ) => {
-        if (isNew) {
+        if (isNew) { // TODO Refactor !!!
             taskList.push(newTask) // Might work wrong, dunno
         }
         else {
