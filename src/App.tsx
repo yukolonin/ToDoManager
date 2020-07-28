@@ -3,9 +3,8 @@ import './App.css';
 
 import Groups from './Groups'
 import Sidebar from './Sidebar'
-import SideMenu from './SideMenu'
 import Task from './Task'
-import TaskList from './TaskList'
+import SideMenu from "./SideMenu";
 
 
 //-----------------
@@ -17,23 +16,56 @@ let tl: Array<Task> = [
     {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
 ]
+//-----------------
 
-let stubTask: Task = {date: '01/02/2021', task: 'Постоять как братишка', group: Groups.ПОГОНЫ}
-let menuStub: {isNew: boolean, maintask: Task} = {isNew: false, maintask: stubTask}
+let defaultTask: Task = {date: '', task: '', group: Groups.ВИЛКИ}
+
+
+
+
 
 function App() {
+
+    const [taskList, setTaskList] = React.useState<Array<Task>>([
+        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
+        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
+        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
+        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
+        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
+    ]);
+
+    const [menuOn, setMenuOn] = React.useState<boolean>(false);
+
+    const[isNew, setIsNew] = React.useState<boolean>(true);
+
+    const [sideTask, setSideTask] = React.useState<Task>(defaultTask)
+
     return (
         <div>
             <div>
-                <Sidebar/>
+                <Sidebar
+                    tl={taskList}
+                    setTaskList={setTaskList}
+                    setMenuOn={setMenuOn}
+                    setIsNew={setIsNew}
+                    setSideTask={setSideTask}
+                />
             </div>
-            {/*<div>*/}
-            {/*    <TaskList items={tl} group={Groups.ALL}/>*/}
-            {/*</div>*/}
 
-            {/*<div>*/}
-            {/*    <SideMenu isNew={menuStub.isNew} maintask={menuStub.maintask} tl={tl}/>*/}
-            {/*</div>*/}
+            {menuOn &&
+                <div>
+                     <SideMenu
+                        isNew={isNew}
+                        task={sideTask}
+                        tl={taskList}
+                        setTaskList={setTaskList}
+                        setMenuOn={setMenuOn}
+                        setIsNew={setIsNew}
+                        setSideTask={setSideTask}
+                    />
+                </div>
+            }
+
         </div>
     )
 }

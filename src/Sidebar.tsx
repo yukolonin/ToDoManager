@@ -9,15 +9,16 @@ import IconSwitch from "./IconSwitch";
 import SidebarItem from "./SidebarItem";
 import TaskList from "./TaskList";
 import Task from "./Task";
+import SideMenu from "./SideMenu";
 
-function Sidebar() {
-    let tl: Array<Task> = [
-        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
-        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
-        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
-        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
-        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
-    ]
+function Sidebar(prop: {
+    tl: Array<Task>,
+    setTaskList: any,
+    setMenuOn: any,
+    setIsNew: any,
+    setSideTask: any
+}) {
+
 
     const [selectedIndex, setSelectedIndex] = React.useState<Groups>(Groups.ALL);
 
@@ -49,7 +50,14 @@ function Sidebar() {
 
             <div>
                 {/*<TaskList items={tl} group={selectedIndex}/>*/}
-                <TaskList group={selectedIndex}/>
+                <TaskList
+                    group={selectedIndex}
+                    tl={prop.tl}
+                    setTaskList={prop.setTaskList}
+                    setMenuOn={prop.setMenuOn}
+                    setIsNew={prop.setIsNew}
+                    setSideTask={prop.setSideTask}
+                />
             </div>
 
         </div>

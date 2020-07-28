@@ -12,24 +12,24 @@ import InsertDates from "./InsertDates";
 import SideMenu from "./SideMenu";
 
 
-function TaskList(prop: {group: Groups}){
+function TaskList(prop: {
+    group: Groups,
+    tl: Array<Task>,
+    setTaskList: any,
+    setMenuOn: any,
+    setIsNew: any,
+    setSideTask: any
+}){
     
-    const [taskList, setTaskList] = React.useState<Array<Task>>([
-        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
-        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
-        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
-        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
-        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
-    ]);
-    const [menuOn, setMenuOn] = React.useState<boolean>(false);
+
 
     const handleNewClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
-        setMenuOn(true);
+        prop.setMenuOn(true);
     };
 
-    let taskListOut = taskList.map((a) => (a))
+    let taskListOut = prop.tl.map((a) => (a))
 
     return (
         <div className="task-list">
@@ -60,10 +60,9 @@ function TaskList(prop: {group: Groups}){
                             <ListItem key={task.date}>
                                 <TaskAccordion
                                     task={task}
-                                    menuOn={menuOn}
-                                    taskList={taskList}
-                                    setMenuOn={setMenuOn}
-                                    setTaskList={setTaskList}
+                                    taskList={prop.tl}
+                                    setMenuOn={prop.setMenuOn}
+                                    setTaskList={prop.setTaskList}
                                 />
                             </ListItem>
                         </div>

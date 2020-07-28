@@ -13,7 +13,6 @@ import SideMenu from "./SideMenu";
 // function TaskAccordion(prop: {task: Task}){
 function TaskAccordion(prop: {
     task: Task,
-    menuOn: boolean,
     taskList: Array<Task>,
     setMenuOn: any,
     setTaskList: any

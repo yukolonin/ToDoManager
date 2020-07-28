@@ -23,10 +23,12 @@ import SelectGroup2 from "./SelectGroup2";
 
 function SideMenu(prop: {
     isNew: boolean,
-    maintask: Task,
+    task: Task,
     tl: Array<Task>,
+    setTaskList: any,
     setMenuOn: any,
-    setTaskList: any
+    setIsNew: any,
+    setSideTask: any
 }) {
 
     // Seems like all good for the moment
@@ -102,7 +104,7 @@ function SideMenu(prop: {
             {/*             Similar tasks appear if menu is called by "Edit" button */}
             {/*            TODO: Create separate element <TaskAccordionDead/> for this place*/}
             {/*                {prop.tl.map((task: Task) => (*/}
-            {/*                    task.task.split(' ')[0] == prop.maintask.task.split(' ')[0]*/}
+            {/*                    task.task.split(' ')[0] == prop.task.task.split(' ')[0]*/}
             {/*                        ?*/}
             {/*                            <TaskAccordion task={task} />*/}
             {/*                        // <TaskAccordion task={task.task} date={task.date} group={task.group}/>*/}
