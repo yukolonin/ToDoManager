@@ -10,6 +10,7 @@ import Task from "./Task";
 import Groups from "./Groups";
 import InsertDates from "./InsertDates";
 import SideMenu from "./SideMenu";
+import DefaultTask from "./DefaultTask";
 
 
 function TaskList(prop: {
@@ -27,6 +28,8 @@ function TaskList(prop: {
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
         prop.setMenuOn(true);
+        prop.setIsNew(true);
+        prop.setSideTask(DefaultTask);
     };
 
     let taskListOut = prop.tl.map((a) => (a))
@@ -63,6 +66,8 @@ function TaskList(prop: {
                                     taskList={prop.tl}
                                     setMenuOn={prop.setMenuOn}
                                     setTaskList={prop.setTaskList}
+                                    setIsNew={prop.setIsNew}
+                                    setSideTask={prop.setSideTask}
                                 />
                             </ListItem>
                         </div>

@@ -20,6 +20,7 @@ import FormControl from '@material-ui/core/FormControl';
 
 import SelectGroup from "./SelectGroup";
 import SelectGroup2 from "./SelectGroup2";
+import DefaultTask from "./DefaultTask";
 
 function SideMenu(prop: {
     isNew: boolean,
@@ -31,6 +32,9 @@ function SideMenu(prop: {
     setSideTask: any
 }) {
 
+    let oldTask: Task = DefaultTask;
+    Object.assign(oldTask, prop.task);
+
     // Seems like all good for the moment
     const handleOkClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -40,25 +44,23 @@ function SideMenu(prop: {
         taskList: Array<Task>
     ) => {
         if (isNew) { // TODO Refactor !!!
-            taskList.push(newTask) // Might work wrong, dunno
+            prop.setTaskList([...taskList, newTask]) // Tight spot
         }
         else {
             // Updating the task by replacing it in array via splice
-            for (let i = 0; i < taskList.length; i++) {
-                if (taskList[i].task === oldTask.task) {
-                    taskList.splice(i, 1, newTask) // Might work wrong, dunno
+            let taskListOut = taskList.map((a) => (a))
+            for (let i = 0; i < taskListOut.length; i++) {
+                if (taskListOut[i].task === oldTask.task) {
+                    taskListOut.splice(i, 1, newTask) // Might work wrong, dunno
                 }
             }
+            prop.setTaskList(taskListOut);
         }
-
-        // Can I rewrite all the function to arrow-style setTaskList? Should I? :---)
-        prop.setTaskList(taskList);
         prop.setMenuOn(false);
     };
 
     const handleDiscardClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        task: Task
     ) => {
         prop.setMenuOn(false);
     };
@@ -89,8 +91,21 @@ function SideMenu(prop: {
             {/*    </FormControl>*/}
             {/*</div>*/}
 
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
+            <Button
+                onClick={(event: any) => {handleDiscardClick(event)}}
+            >
+                Cancel
+            </Button>
+            <Button
+                onClick={(event: any) => {handleOkClick(
+                    event,
+                    oldTask,
+                    prop.task,
+                    prop.isNew,
+                    prop.tl
+                )}}
+            >Ok
+            </Button>
 
             {/*{prop.isNew == true*/}
             {/*    ? <></> :*/}

@@ -5,7 +5,7 @@ import Groups from './Groups'
 import Sidebar from './Sidebar'
 import Task from './Task'
 import SideMenu from "./SideMenu";
-
+import DefaultTask from "./DefaultTask";
 
 //-----------------
 
@@ -17,12 +17,6 @@ let tl: Array<Task> = [
     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
 ]
 //-----------------
-
-let defaultTask: Task = {date: '', task: '', group: Groups.ВИЛКИ}
-
-
-
-
 
 function App() {
 
@@ -38,7 +32,7 @@ function App() {
 
     const[isNew, setIsNew] = React.useState<boolean>(true);
 
-    const [sideTask, setSideTask] = React.useState<Task>(defaultTask)
+    const [sideTask, setSideTask] = React.useState<Task>(DefaultTask)
 
     return (
         <div>

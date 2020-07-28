@@ -15,23 +15,21 @@ function TaskAccordion(prop: {
     task: Task,
     taskList: Array<Task>,
     setMenuOn: any,
-    setTaskList: any
+    setTaskList: any,
+    setIsNew: any,
+    setSideTask: any
 
 }) {
 
-    const handleEditClick = ( //TODO: Impement in TA body
+    const handleEditClick = ( //TODO: Implement in TA body
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        // task: Task
+        task: Task
     ) => {
         prop.setMenuOn(true);
-        // Would it work as I imagine?
-        // return <SideMenu
-        //     isNew={false}
-        //     maintask={task}
-        //     tl={prop.taskList}
-        //     setMenuOn={prop.setMenuOn}
-        //     setTaskList={prop.setTaskList}
-        // />
+        prop.setSideTask(task);
+        prop.setIsNew(false);
+
+
     };
 
     return (
@@ -49,7 +47,7 @@ function TaskAccordion(prop: {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Button
-                        onClick={(event: any) => {handleEditClick(event)}}
+                        onClick={(event: any) => {handleEditClick(event, prop.task)}}
                     >
                         Edit
                     </Button>
