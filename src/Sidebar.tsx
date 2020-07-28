@@ -30,6 +30,7 @@ function Sidebar(prop: {
     };
 
     return (
+        <div>
         <div className="sidebar">
             <List disablePadding dense>
                 {Object.values(Groups).map((value: Groups) => (
@@ -47,7 +48,7 @@ function Sidebar(prop: {
 
                 ))}
             </List>
-
+        </div>
             <div>
                 <TaskList
                     group={selectedIndex}

@@ -23,6 +23,7 @@ code {
 .task-list {
   margin-left: 280px;
   margin-right: 400px;
+  max-width: 600px;
 }
 
 .sidebar-icon {

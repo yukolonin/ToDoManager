@@ -39,8 +39,8 @@ function TaskAccordion(prop: {
                     id="additional-actions1-header"
                 >
                     <Checkbox/>
-                    <Typography>{prop.task.task}</Typography>
-                    <Typography>{prop.task.date}</Typography>
+                    <Typography>{prop.task.task} *</Typography>
+                    <Typography>{prop.task.date} *</Typography>
                     <Typography>{prop.task.group}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>

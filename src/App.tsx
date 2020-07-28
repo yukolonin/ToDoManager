@@ -8,7 +8,7 @@ import SideMenu from "./SideMenu";
 import DefaultTask from "./DefaultTask";
 
 //-----------------
-
+// Legacy
 let tl: Array<Task> = [
     {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
     {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},

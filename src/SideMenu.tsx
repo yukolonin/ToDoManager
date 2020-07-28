@@ -95,13 +95,15 @@ function SideMenu(prop: {
             <TextField
                 id="task-description"
                 label="Task"
+                value={task}
                 onChange={handleTaskChange}
             />
 
             {/*Instead of DatePicker module for now */}
             <TextField
                 id="task-date"
-                label="--/--/----"
+                label="Date"
+                value={date}
                 onChange={handleDateChange}
             />
 
