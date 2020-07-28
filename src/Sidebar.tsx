@@ -49,7 +49,6 @@ function Sidebar(prop: {
             </List>
 
             <div>
-                {/*<TaskList items={tl} group={selectedIndex}/>*/}
                 <TaskList
                     group={selectedIndex}
                     tl={prop.tl}

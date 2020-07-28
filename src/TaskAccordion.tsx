@@ -28,8 +28,6 @@ function TaskAccordion(prop: {
         prop.setMenuOn(true);
         prop.setSideTask(task);
         prop.setIsNew(false);
-
-
     };
 
     return (
@@ -53,14 +51,6 @@ function TaskAccordion(prop: {
                     </Button>
                 </AccordionDetails>
             </Accordion>
-
-            {/*{prop.menuOn && <SideMenu*/}
-            {/*    isNew={false}*/}
-            {/*    maintask={prop.task}*/}
-            {/*    tl={prop.taskList}*/}
-            {/*    setMenuOn={prop.setMenuOn}*/}
-            {/*    setTaskList={prop.setTaskList}*/}
-            {/*/>}*/}
         </div>
     )
 }

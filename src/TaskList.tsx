@@ -36,6 +36,7 @@ function TaskList(prop: {
 
     return (
         <div className="task-list">
+
             <Typography
                 display="inline"
                 className="main-frame-header"
@@ -73,13 +74,7 @@ function TaskList(prop: {
                         </div>
                 ))}
             </List>
-            {/*{menuOn && <SideMenu*/}
-            {/*    isNew={true}*/}
-            {/*    maintask={{date: '', task: '', group: Groups.ВИЛКИ}}*/}
-            {/*    tl={taskList}*/}
-            {/*    setMenuOn={setMenuOn}*/}
-            {/*    setTaskList={setTaskList}*/}
-            {/*/>}*/}
+
         </div>
     )
 }
