@@ -11,25 +11,10 @@ import Task from "./Task";
 import SideMenu from "./SideMenu";
 
 
-function TaskAccordion(prop: {
+function TaskAccordionDead(prop: {
     task: Task,
     taskList: Array<Task>,
-    setMenuOn: any,
-    setTaskList: any,
-    setIsNew: any,
-    setSideTask: any
-
 }) {
-
-    const handleEditClick = ( //TODO: Implement in TA body
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        task: Task
-    ) => {
-        prop.setMenuOn(true);
-        prop.setSideTask(task);
-        prop.setIsNew(false);
-    };
-
     return (
         <div className="task-accordion">
             <Accordion>
@@ -43,16 +28,9 @@ function TaskAccordion(prop: {
                     <Typography>{prop.task.date}</Typography>
                     <Typography>{prop.task.group}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                    <Button
-                        onClick={(event: any) => {handleEditClick(event, prop.task)}}
-                    >
-                        Edit
-                    </Button>
-                </AccordionDetails>
             </Accordion>
         </div>
     )
 }
 
-export default TaskAccordion
+export default TaskAccordionDead

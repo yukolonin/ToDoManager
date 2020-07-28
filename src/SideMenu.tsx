@@ -1,12 +1,17 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography'
 import {Button} from '@material-ui/core'
-
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
 import TextField from '@material-ui/core/TextField'
+
 import Task from "./Task";
 import Groups from "./Groups";
 import SelectGroup2 from "./SelectGroup2";
 import DefaultTask from "./DefaultTask";
+import TaskAccordionDead from "./TaskAccordionDead";
+import TaskAccordion from "./TaskAccordion";
 
 function SideMenu(prop: {
     isNew: boolean,
@@ -39,6 +44,8 @@ function SideMenu(prop: {
     ) => {
         setTask(event.target.value);
     };
+
+    // TODO: fix
 
     // const handleGroupChange = (
     //     event: React.ChangeEvent<HTMLInputElement>
@@ -79,7 +86,7 @@ function SideMenu(prop: {
         prop.setMenuOn(false);
     };
 
-
+    let tlOut = prop.tl.map((a) => (a))
 
     return (
         <div className="side-menu">
@@ -117,28 +124,33 @@ function SideMenu(prop: {
             >Ok
             </Button>
 
-            {/*{prop.isNew == true*/}
-            {/*    ? <></> :*/}
-            {/*        <div>*/}
-            {/*            <List>*/}
-            {/*                <ListItem>*/}
-            {/*                    <div>*/}
-            {/*                        <ListItemText>Similar tasks</ListItemText>*/}
-            {/*                    </div>*/}
-            {/*                </ListItem>*/}
-            {/*             Similar tasks appear if menu is called by "Edit" button */}
-            {/*            TODO: Create separate element <TaskAccordionDead/> for this place*/}
-            {/*                {prop.tl.map((task: Task) => (*/}
-            {/*                    task.task.split(' ')[0] == prop.task.task.split(' ')[0]*/}
-            {/*                        ?*/}
-            {/*                            <TaskAccordion task={task} />*/}
-            {/*                        // <TaskAccordion task={task.task} date={task.date} group={task.group}/>*/}
-            {/*                        :*/}
-            {/*                            <></>*/}
-            {/*                ))}*/}
-            {/*            </List>*/}
-            {/*        </div>*/}
-            {/*}*/}
+            {prop.isNew == true
+                ? <></> :
+                    <div>
+                        <List>
+                            <ListItem>
+                                <div>
+                                    <ListItemText>Similar tasks</ListItemText>
+                                </div>
+                            </ListItem>
+                        {/* Similar tasks appear if menu is called by "Edit" button */}
+                        {/*TODO: Create separate element <TaskAccordionDead/> for this place*/}
+                            {tlOut.map((task: Task) => (
+                                // Task is considered "similar" if its first word matches
+                                task.task.split(' ')[0] == prop.task.task.split(' ')[0]
+                                &&
+                                task.task !== prop.task.task
+                                    ?
+                                        <TaskAccordionDead
+                                            task={task}
+                                            taskList={prop.tl}
+                                        />
+                                    :
+                                        <></>
+                            ))}
+                        </List>
+                    </div>
+            }
         </div>
     )
 }
