@@ -9,13 +9,17 @@ import Task from "./Task";
 import Groups from "./Groups";
 
 
-export default function SelectGroup2() {
+export default function SelectGroup2(props: {
+    onChange: (value: Groups) => void
+}) {
 
     return (
         <div>
             <FormControl>
                 <InputLabel>Group</InputLabel>
-                <Select>
+                <Select
+                    onChange={(event) => props.onChange(event.target.value as Groups)}
+                >
                     {Object.values(Groups).map((value: Groups) => (
                         value == Groups.DATE || value == Groups.ALL ? <></> : // tight spot
                         <option value={value}>{value}</option>

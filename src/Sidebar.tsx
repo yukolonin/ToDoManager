@@ -31,24 +31,24 @@ function Sidebar(prop: {
 
     return (
         <div>
-        <div className="sidebar">
-            <List disablePadding dense>
-                {Object.values(Groups).map((value: Groups) => (
-                    value === Groups.DATE ? <></> :
+            <div className="sidebar">
+                <List disablePadding dense>
+                    {Object.values(Groups).map((value: Groups) => (
+                        value === Groups.DATE ? <></> :
 
-                        <SidebarItem
-                        group={value}
-                        selected={selectedIndex === value}
-                        onClick={(
-                            event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                        ) =>
-                            handleListItemClick(event, value)
-                        }
-                        />
+                            <SidebarItem
+                            group={value}
+                            selected={selectedIndex === value}
+                            onClick={(
+                                event: React.MouseEvent<HTMLDivElement, MouseEvent>
+                            ) =>
+                                handleListItemClick(event, value)
+                            }
+                            />
 
-                ))}
-            </List>
-        </div>
+                    ))}
+                </List>
+            </div>
             <div>
                 <TaskList
                     group={selectedIndex}

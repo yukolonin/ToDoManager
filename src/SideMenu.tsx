@@ -45,14 +45,11 @@ function SideMenu(prop: {
         setTask(event.target.value);
     };
 
-    // TODO: fix
-
-    // const handleGroupChange = (
-    //     event: React.ChangeEvent<HTMLInputElement>
-    // ) => {
-    //     // let zzz = Groups[event.target.value];
-    //     setGroup(event.target.value);
-    // };
+    const handleGroupChange = (
+        group: Groups
+    ) => {
+        setGroup(group);
+    };
 
     const handleOkClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -86,6 +83,7 @@ function SideMenu(prop: {
         prop.setMenuOn(false);
     };
 
+
     let tlOut = prop.tl.map((a) => (a))
 
     return (
@@ -107,7 +105,9 @@ function SideMenu(prop: {
                 onChange={handleDateChange}
             />
 
-            <SelectGroup2/>
+            <SelectGroup2
+            onChange={handleGroupChange}
+            />
 
             <Button
                 onClick={(event: any) => {handleDiscardClick(event)}}
