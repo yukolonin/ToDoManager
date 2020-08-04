@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import './App.css';
 
+import DefaultTask from "./DefaultTask";
 import Groups from './Groups'
 import Sidebar from './Sidebar'
-import Task from './Task'
 import SideMenu from "./SideMenu";
-import DefaultTask from "./DefaultTask";
+import Task from './Task'
+
 
 //-----------------
-
 let tl: Array<Task> = [
     {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
     {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
@@ -20,9 +20,7 @@ let tl: Array<Task> = [
 
 function App() {
 
-
     // One of two strings below on choice determine empty start or some ready data
-
     const [taskList, setTaskList] = React.useState<Array<Task>>(
         // JSON.parse(localStorage.getItem('taskList') || '[]')
         JSON.parse(localStorage.getItem('taskList') || JSON.stringify(tl))
@@ -35,7 +33,6 @@ function App() {
     const [menuOn, setMenuOn] = React.useState<boolean>(false);
 
     const[isNew, setIsNew] = React.useState<boolean>(true);
-
 
     const [sideTask, setSideTask] = React.useState<Task>(DefaultTask)
 
@@ -64,7 +61,6 @@ function App() {
                     />
                 </div>
             }
-
         </div>
     )
 }

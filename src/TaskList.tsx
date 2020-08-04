@@ -5,12 +5,11 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import {Button} from '@material-ui/core'
 
-import TaskAccordion from './TaskAccordion'
-import Task from "./Task";
+import DefaultTask from "./DefaultTask";
 import Groups from "./Groups";
 import InsertDates from "./InsertDates";
-import SideMenu from "./SideMenu";
-import DefaultTask from "./DefaultTask";
+import TaskAccordion from './TaskAccordion'
+import Task from "./Task";
 
 
 function TaskList(prop: {
@@ -21,8 +20,6 @@ function TaskList(prop: {
     setIsNew: any,
     setSideTask: any
 }){
-    
-
 
     const handleNewClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,

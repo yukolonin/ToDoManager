@@ -1,15 +1,11 @@
 import React from 'react';
 import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
 
 import Groups from './Groups'
-import IconSwitch from "./IconSwitch";
 import SidebarItem from "./SidebarItem";
 import TaskList from "./TaskList";
 import Task from "./Task";
-import SideMenu from "./SideMenu";
+
 
 function Sidebar(prop: {
     tl: Array<Task>,
@@ -18,7 +14,6 @@ function Sidebar(prop: {
     setIsNew: any,
     setSideTask: any
 }) {
-
 
     const [selectedIndex, setSelectedIndex] = React.useState<Groups>(Groups.ALL);
 

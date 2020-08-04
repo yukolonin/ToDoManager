@@ -1,14 +1,13 @@
 import React from "react";
 
 import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
 import {Button} from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography'
 
 import Task from "./Task";
-import SideMenu from "./SideMenu";
 
 
 function TaskAccordion(prop: {

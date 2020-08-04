@@ -6,12 +6,12 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import TextField from '@material-ui/core/TextField'
 
-import Task from "./Task";
+import DefaultTask from "./DefaultTask";
 import Groups from "./Groups";
 import SelectGroup2 from "./SelectGroup2";
-import DefaultTask from "./DefaultTask";
-import TaskAccordionDead from "./TaskAccordionDead";
+import Task from "./Task";
 import TaskAccordion from "./TaskAccordion";
+import TaskAccordionDead from "./TaskAccordionDead";
 
 function SideMenu(prop: {
     isNew: boolean,
@@ -61,7 +61,7 @@ function SideMenu(prop: {
 
         newTask = {date: date, task: task, group: group}
 
-        if (isNew) { // TODO Refactor !!!
+        if (isNew) {
             prop.setTaskList([...taskList, newTask]) // Tight spot
         }
         else {
@@ -136,7 +136,7 @@ function SideMenu(prop: {
                                 </div>
                             </ListItem>
                         {/* Similar tasks appear if menu is called by "Edit" button */}
-                        {/*TODO: Create separate element <TaskAccordionDead/> for this place*/}
+                        {/*TODO: Get rid of TADead, replace it by 'inactive' property for TA*/}
                             {tlOut.map((task: Task) => (
                                 // Task is considered "similar" if its first word matches
                                 task.task.split(' ')[0] == prop.task.task.split(' ')[0]
