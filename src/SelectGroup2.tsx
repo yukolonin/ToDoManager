@@ -21,7 +21,7 @@ export default function SelectGroup2(props: {
                     onChange={(event) => props.onChange(event.target.value as Groups)}
                 >
                     {Object.values(Groups).map((value: Groups) => (
-                        value == Groups.DATE || value == Groups.ALL ? <></> : // tight spot
+                        value === Groups.DATE || value === Groups.ALL ? <></> : // tight spot
                         <MenuItem value={value}>{value}</MenuItem>
                     ))}
                 </Select>

@@ -126,7 +126,7 @@ function SideMenu(prop: {
             >Ok
             </Button>
 
-            {prop.isNew == true
+            {prop.isNew
                 ? <></> :
                     <div>
                         <List>
@@ -139,7 +139,7 @@ function SideMenu(prop: {
                         {/*TODO: Get rid of TADead, replace it by 'inactive' property for TA*/}
                             {tlOut.map((task: Task) => (
                                 // Task is considered "similar" if its first word matches
-                                task.task.split(' ')[0] == prop.task.task.split(' ')[0]
+                                task.task.split(' ')[0] === prop.task.task.split(' ')[0]
                                 &&
                                 task.task !== prop.task.task
                                     ?
