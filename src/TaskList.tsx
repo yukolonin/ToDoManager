@@ -39,6 +39,7 @@ function TaskList(prop: {
 
             <Typography
                 display="inline"
+                align='center'
                 className="main-frame-header"
             >
                 Привет, братишка

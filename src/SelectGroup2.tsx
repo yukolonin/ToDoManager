@@ -22,7 +22,7 @@ export default function SelectGroup2(props: {
                 >
                     {Object.values(Groups).map((value: Groups) => (
                         value == Groups.DATE || value == Groups.ALL ? <></> : // tight spot
-                        <option value={value}>{value}</option>
+                        <MenuItem value={value}>{value}</MenuItem>
                     ))}
                 </Select>
             </FormControl>

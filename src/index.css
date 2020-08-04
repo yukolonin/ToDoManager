@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-size: 30px;
+
+  background: #F5F5F5;
 }
 
 code {
@@ -13,18 +17,49 @@ code {
 }
 
 .sidebar {
-  max-width: 280px;
+  width: 20%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 0;
   bottom: 0;
+  background: #FFFFFF;
+  box-shadow: 0px 9px 18px rgba(0, 0, 0, 0.18), 0px 5.5px 5px rgba(0, 0, 0, 0.24);
+}
+
+.sidebar-item {
+
 }
 
 .task-list {
-  margin-left: 280px;
-  margin-right: 400px;
-  max-width: 600px;
+  margin-left: 20%;
+  margin-right: 40%;
+  /*max-width: 600px;*/
 }
+
+.task-accordion{
+  width: 100%;
+
+}
+
+.task-accordion-date {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 0.2em;
+  color: #747474;
+  /*color: #333333;*/
+}
+
+.task-accordion-group {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  color: #747474;
+}
+
+
 
 .sidebar-icon {
   color: #737373;
@@ -42,6 +77,12 @@ code {
 }
 
 .side-menu{
-  width: 400px;
-  float:right;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  right: 0;
+  /*float:right;*/
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.22), 0px 24px 24px rgba(0, 0, 0, 0.3);
 }

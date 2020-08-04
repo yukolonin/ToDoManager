@@ -21,7 +21,7 @@ function TaskAccordion(prop: {
 
 }) {
 
-    const handleEditClick = ( //TODO: Implement in TA body
+    const handleEditClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
         task: Task
     ) => {
@@ -39,9 +39,9 @@ function TaskAccordion(prop: {
                     id="additional-actions1-header"
                 >
                     <Checkbox/>
-                    <Typography>{prop.task.task} *</Typography>
-                    <Typography>{prop.task.date} *</Typography>
-                    <Typography>{prop.task.group}</Typography>
+                    <Typography>{prop.task.task}</Typography>
+                    <Typography variant='caption' className='task-accordion-date'>{prop.task.date}</Typography>
+                    <Typography variant='caption' className='task-accordion-group'>{prop.task.group}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Button
