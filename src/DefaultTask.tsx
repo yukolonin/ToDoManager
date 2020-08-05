@@ -6,7 +6,7 @@ import Groups from "./Groups";
 // TODO: Add default date extracted from system date
 let DefaultTask: Task = {
     date: '04/20/1986',
-    task: 'Cпеть про слоника',
+    task: '',
     group: Groups.ВИЛКИ
 }
 
