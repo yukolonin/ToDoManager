@@ -7,6 +7,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Box from '@material-ui/core/Box';
 import {Button} from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography'
 
 import CircleCheckedFilled from '@material-ui/icons/CheckCircle';
@@ -44,15 +45,18 @@ function TaskAccordion(prop: {
                     aria-controls="additional-actions1-content"
                     id="additional-actions1-header"
                 >
-                    <Checkbox
-                        className='checkbox'
-                        icon={<CircleUnchecked />}
-                        checkedIcon={<CircleCheckedFilled />}
-                        // color={'primary'}
-                        // color={checked === true ? 'primary' : 'secondary'} // Does not work
-                        onChange={handleCheck}
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox
+                            className='checkbox'
+                            icon={<CircleUnchecked />}
+                            checkedIcon={<CircleCheckedFilled />}
+                            onChange={handleCheck}
+                        />}
+                        label={checked ? <s>{prop.task.task}</s> : prop.task.task}
                     />
-                    <Typography>{checked ? <s>{prop.task.task}</s> : prop.task.task} </Typography>
                     <Typography variant='subtitle1' className='task-accordion-date'>
                         <Box>
                             {prop.task.date}
@@ -64,19 +68,15 @@ function TaskAccordion(prop: {
                         </Box>
                     </Typography>
                 </AccordionSummary>
-                {/*<AccordionDetails>*/}
-                {/*    <div className='edit-button'>*/}
                         <AccordionActions>
-                        <Button
-                            onClick={(event: any) => {handleEditClick(event, prop.task)}}
-                        >
-                            <Typography variant='button'>
-                                Edit
-                            </Typography>
-                        </Button>
-                            </AccordionActions>
-                {/*    </div>*/}
-                {/*</AccordionDetails>*/}
+                            <Button
+                                onClick={(event: any) => {handleEditClick(event, prop.task)}}
+                            >
+                                <Typography variant='button'>
+                                    Edit
+                                </Typography>
+                            </Button>
+                        </AccordionActions>
             </Accordion>
         </div>
     )
