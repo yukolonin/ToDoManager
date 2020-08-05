@@ -27,8 +27,21 @@ code {
   box-shadow: 0px 9px 18px rgba(0, 0, 0, 0.18), 0px 5.5px 5px rgba(0, 0, 0, 0.24);
 }
 
-.sidebar-item {
+.sidebar-item-selected {
+  color: #F75934;
+}
+.sidebar-item-usual{
+  color: #747474;
+}
 
+.sidebar-icon {
+  color: #737373;
+  margin-right: 25px;
+}
+
+.sidebar-text {
+  font-family: 'Roboto', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
 }
 
 .task-list {
@@ -85,17 +98,6 @@ code {
     position: absolute;
     right: 0;
   }
-
-.sidebar-icon {
-  color: #737373;
-  margin-right: 25px;
-
-  }
-
-.sidebar-text {
-  font-family: 'Roboto', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bolder;
-}
 
 .side-menu{
   top: 0;

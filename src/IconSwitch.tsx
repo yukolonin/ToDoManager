@@ -10,40 +10,45 @@ import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import SmokingRoomsIcon from '@material-ui/icons/SmokingRooms';
 import InboxIcon from '@material-ui/icons/Inbox';
 
-function IconSwitch(group: Groups){
-    switch(group) {
+function IconSwitch(prop: {
+    group: Groups,
+    className: string
+}) {
+    switch(prop.group) {
         case 'Вилки':
             return (
-                <FormatShapes />
+                <FormatShapes className={prop.className}/>
             )
         case 'Погоны':
             return (
-                <HotTubIcon />
+                <HotTubIcon className={prop.className}/>
             )
         case 'Сладкий хлеб':
             return (
-                <MoodBadIcon />
+                <MoodBadIcon className={prop.className}/>
             )
         case 'Слоники':
             return (
-                <MenuBookIcon />
+                <MenuBookIcon className={prop.className}/>
             )
         case 'Струи':
             return (
-                <AccessibilityNewIcon />
+                <AccessibilityNewIcon className={prop.className}/>
             )
         case 'Цапли':
             return (
-                    <BeachAccessIcon />
+                    <BeachAccessIcon className={prop.className}/>
             )
         case 'Шашки':
             return (
-                <SmokingRoomsIcon />
+                <SmokingRoomsIcon className={prop.className}/>
             )
         case 'DATE':
             return (<></>)
         case 'All':
-            return <InboxIcon />
+            return <InboxIcon className={prop.className}/>
+        default:
+            return (<></>)
     }
 }
 export default IconSwitch

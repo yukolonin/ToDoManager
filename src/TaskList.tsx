@@ -56,7 +56,8 @@ function TaskList(prop: {
                     task.group === "DATE" || task.group === "All" ?
                         <div>
                             <ListItem key={task.date}>
-                                <ListItemText>{task.date}</ListItemText>
+                                <Typography variant='h6'>{task.date}</Typography>
+                                {/*<ListItemText>{task.date}</ListItemText>*/}
                             </ListItem>
                         </div>
                     :

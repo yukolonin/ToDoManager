@@ -36,6 +36,7 @@ const theme = createMuiTheme({
         button: {color: '#F75934'},
         subtitle1: {fontSize: '12px', fontWeight: 400, color: '#747474'},
         subtitle2: {fontSize: '14px', fontWeight: 500, color: '#737373'},
+        h6: {fontSize: '12px', fontWeight: 700, color: '#979797', letterSpacing: '0.15em'}
     }
 });
 
