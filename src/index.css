@@ -31,12 +31,12 @@ code {
   color: #F75934;
 }
 .sidebar-item-usual{
-  color: #747474;
+  color: #333333;
 }
 
-.sidebar-icon {
+.sidebar-item-icon {
   color: #737373;
-  margin-right: 25px;
+  /*margin-right: 25px;*/
 }
 
 .sidebar-text {
