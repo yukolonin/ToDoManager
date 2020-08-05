@@ -3,9 +3,13 @@ import React from "react";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Box from '@material-ui/core/Box';
 import {Button} from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography'
+
+import CircleCheckedFilled from '@material-ui/icons/CheckCircle';
+import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 import Task from "./Task";
 
@@ -28,6 +32,17 @@ function TaskAccordion(prop: {
         prop.setIsNew(false);
     };
 
+    const [checked, setChecked] = React.useState<boolean>(false);
+    const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {setChecked(!checked)};
+
+    function strikethrough(id: string) {
+        const box: HTMLElement | null = document.getElementById(id);
+        if (box) {
+            box.style.textDecoration = 'line-through';
+        }
+    }
+
+
     return (
         <div className="task-accordion">
             <Accordion>
@@ -36,10 +51,23 @@ function TaskAccordion(prop: {
                     aria-controls="additional-actions1-content"
                     id="additional-actions1-header"
                 >
-                    <Checkbox/>
-                    <Typography>{prop.task.task}</Typography>
-                    <Typography variant='subtitle1' className='task-accordion-date'>{prop.task.date}</Typography>
-                    <Typography variant='subtitle2' className='task-accordion-group'>{prop.task.group}</Typography>
+                    <Checkbox
+                        icon={<CircleUnchecked />}
+                        checkedIcon={<CircleCheckedFilled />}
+                        color='primary'
+                        onChange={handleCheck}
+                    />
+                    <Typography>{checked ? <s>{prop.task.task}</s> : prop.task.task} </Typography>
+                    <Typography variant='subtitle1' className='task-accordion-date'>
+                        <Box>
+                            {prop.task.date}
+                        </Box>
+                    </Typography>
+                    <Typography variant='subtitle2' className='task-accordion-group'>
+                        <Box>
+                            {prop.task.group}
+                        </Box>
+                    </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div>
