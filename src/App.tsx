@@ -7,6 +7,8 @@ import Sidebar from './Sidebar'
 import SideMenu from "./SideMenu";
 import Task from './Task'
 
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 
 //-----------------
 let tl: Array<Task> = [
@@ -17,6 +19,17 @@ let tl: Array<Task> = [
     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
 ]
 //-----------------
+
+const theme = createMuiTheme({
+    palette: {
+        primary: { main: '#F75934' },
+        secondary: { main: '#747474' },
+        text: { primary: '#333333', secondary: '#F75934', disabled: '#979797'},
+    },
+    typography: {
+        fontSize: 14,
+    }
+});
 
 function App() {
 
@@ -37,31 +50,25 @@ function App() {
     const [sideTask, setSideTask] = React.useState<Task>(DefaultTask)
 
     return (
-        <div>
-            <div>
-                <Sidebar
-                    tl={taskList}
-                    setTaskList={setTaskList}
-                    setMenuOn={setMenuOn}
-                    setIsNew={setIsNew}
-                    setSideTask={setSideTask}
-                />
-            </div>
+        <MuiThemeProvider theme={theme}>
+            <Sidebar
+                tl={taskList}
+                setTaskList={setTaskList}
+                setMenuOn={setMenuOn}
+                setIsNew={setIsNew}
+                setSideTask={setSideTask}
+            />
 
-            {menuOn &&
-                <div>
-                     <SideMenu
-                        isNew={isNew}
-                        task={sideTask}
-                        tl={taskList}
-                        setTaskList={setTaskList}
-                        setMenuOn={setMenuOn}
-                        setIsNew={setIsNew}
-                        setSideTask={setSideTask}
-                    />
-                </div>
-            }
-        </div>
+            {menuOn && <SideMenu
+                isNew={isNew}
+                task={sideTask}
+                tl={taskList}
+                setTaskList={setTaskList}
+                setMenuOn={setMenuOn}
+                setIsNew={setIsNew}
+                setSideTask={setSideTask}
+            />}
+        </MuiThemeProvider>
     )
 }
 

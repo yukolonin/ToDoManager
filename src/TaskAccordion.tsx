@@ -17,7 +17,6 @@ function TaskAccordion(prop: {
     setTaskList: any,
     setIsNew: any,
     setSideTask: any
-
 }) {
 
     const handleEditClick = (
@@ -43,11 +42,13 @@ function TaskAccordion(prop: {
                     <Typography variant='caption' className='task-accordion-group'>{prop.task.group}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button
-                        onClick={(event: any) => {handleEditClick(event, prop.task)}}
-                    >
-                        Edit
-                    </Button>
+                    <div>
+                        <Button
+                            onClick={(event: any) => {handleEditClick(event, prop.task)}}
+                        >
+                            Edit
+                        </Button>
+                    </div>
                 </AccordionDetails>
             </Accordion>
         </div>

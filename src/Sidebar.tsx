@@ -30,7 +30,6 @@ function Sidebar(prop: {
                 <List disablePadding dense>
                     {Object.values(Groups).map((value: Groups) => (
                         value === Groups.DATE ? <></> :
-
                             <SidebarItem
                             group={value}
                             selected={selectedIndex === value}
@@ -40,21 +39,17 @@ function Sidebar(prop: {
                                 handleListItemClick(event, value)
                             }
                             />
-
                     ))}
                 </List>
             </div>
-            <div>
-                <TaskList
-                    group={selectedIndex}
-                    tl={prop.tl}
-                    setTaskList={prop.setTaskList}
-                    setMenuOn={prop.setMenuOn}
-                    setIsNew={prop.setIsNew}
-                    setSideTask={prop.setSideTask}
-                />
-            </div>
-
+            <TaskList
+                group={selectedIndex}
+                tl={prop.tl}
+                setTaskList={prop.setTaskList}
+                setMenuOn={prop.setMenuOn}
+                setIsNew={prop.setIsNew}
+                setSideTask={prop.setSideTask}
+            />
         </div>
     )
 }

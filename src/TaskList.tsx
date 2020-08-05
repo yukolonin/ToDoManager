@@ -33,23 +33,20 @@ function TaskList(prop: {
 
     return (
         <div className="task-list">
-
-            <Typography
-                display="inline"
-                align='center'
-                className="main-frame-header"
-            >
-                Привет, братишка
-            </Typography>
-
-            <Button
-                className="add-button"
-                onClick={(event: any) => {handleNewClick(event)}}
-            >
-                Курлык
-            </Button>
-
             <List>
+                <ListItem className='tasklist-header'>
+                    <div className="tasklist-header-text">
+                        <Typography>
+                            Привет, братишка
+                        </Typography>
+                    </div>
+                    <div className="add-button">
+                        <Button onClick={(event: any) => {handleNewClick(event)}}>
+                            Курлык
+                        </Button>
+                    </div>
+                </ListItem>
+
                 {InsertDates(taskListOut, prop.group).map((task: Task) => (
                     task.group == "DATE" || task.group == "All" ?
                         <div>
