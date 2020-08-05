@@ -35,14 +35,6 @@ function TaskAccordion(prop: {
     const [checked, setChecked] = React.useState<boolean>(false);
     const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {setChecked(!checked)};
 
-    function strikethrough(id: string) {
-        const box: HTMLElement | null = document.getElementById(id);
-        if (box) {
-            box.style.textDecoration = 'line-through';
-        }
-    }
-
-
     return (
         <div className="task-accordion">
             <Accordion>
@@ -52,9 +44,11 @@ function TaskAccordion(prop: {
                     id="additional-actions1-header"
                 >
                     <Checkbox
+                        className='checkbox'
                         icon={<CircleUnchecked />}
                         checkedIcon={<CircleCheckedFilled />}
-                        color='primary'
+                        // color={'primary'}
+                        // color={checked === true ? 'primary' : 'secondary'} // Does not work
                         onChange={handleCheck}
                     />
                     <Typography>{checked ? <s>{prop.task.task}</s> : prop.task.task} </Typography>

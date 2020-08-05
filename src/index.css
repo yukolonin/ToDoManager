@@ -94,9 +94,14 @@ code {
     color: #747474;
   }
 
+  .checkbox{
+    position: absolute;
+  }
+
   .edit-button{
     position: absolute;
     right: 0;
+
   }
 
 .side-menu{
