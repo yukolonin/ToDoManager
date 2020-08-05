@@ -38,8 +38,8 @@ function TaskAccordion(prop: {
                 >
                     <Checkbox/>
                     <Typography>{prop.task.task}</Typography>
-                    <Typography variant='caption' className='task-accordion-date'>{prop.task.date}</Typography>
-                    <Typography variant='caption' className='task-accordion-group'>{prop.task.group}</Typography>
+                    <Typography variant='subtitle1' className='task-accordion-date'>{prop.task.date}</Typography>
+                    <Typography variant='subtitle2' className='task-accordion-group'>{prop.task.group}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div>

@@ -27,7 +27,15 @@ const theme = createMuiTheme({
         text: { primary: '#333333', secondary: '#F75934', disabled: '#979797'},
     },
     typography: {
+        fontFamily: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            'sans-serif'].join(','),
         fontSize: 14,
+        body1: {fontWeight: 500,},
+        body2: {fontWeight: 500,},
+        button: {color: '#F75934'},
+        subtitle1: {fontSize: '12px', fontWeight: 400, color: '#747474'},
+        subtitle2: {fontSize: '14px', fontWeight: 500, color: '#737373'},
     }
 });
 

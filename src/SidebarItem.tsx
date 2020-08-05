@@ -9,15 +9,6 @@ import Groups from "./Groups";
 // TODO: Get rid of 'any' type specification
 function SidebarItem(prop: {group: Groups, selected: boolean, onClick: any}) {
 
-    // const [selectedIndex, setSelectedIndex] = React.useState('All');
-    //
-    // const handleListItemClick = (
-    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    //     index: Groups,
-    // ) => {
-    //     setSelectedIndex(index);
-    // };
-
     return (
         <ListItem
             key={prop.group}

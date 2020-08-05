@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -35,20 +36,24 @@ function TaskList(prop: {
         <div className="task-list">
             <List>
                 <ListItem className='tasklist-header'>
-                    <div className="tasklist-header-text">
-                        <Typography>
+                        <Typography className="tasklist-header-text" component='div'>
+                            <Box fontWeight='fontWeightMedium' fontSize='20px'>
                             Привет, братишка
+                            </Box>
                         </Typography>
-                    </div>
                     <div className="add-button">
-                        <Button onClick={(event: any) => {handleNewClick(event)}}>
-                            Курлык
+                        <Button variant='text' onClick={(event: any) => {handleNewClick(event)}}>
+                            <Typography variant='button'>
+                                <Box fontSize='14px'>
+                                    Курлык
+                                </Box>
+                            </Typography>
                         </Button>
                     </div>
                 </ListItem>
 
                 {InsertDates(taskListOut, prop.group).map((task: Task) => (
-                    task.group == "DATE" || task.group == "All" ?
+                    task.group === "DATE" || task.group === "All" ?
                         <div>
                             <ListItem key={task.date}>
                                 <ListItemText>{task.date}</ListItemText>
