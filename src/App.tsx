@@ -33,7 +33,7 @@ const theme = createMuiTheme({
         fontSize: 14,
         body1: {fontWeight: 500,},
         body2: {fontWeight: 500,},
-        button: {color: '#F75934'},
+        button: {fontSize: '14px', color: '#F75934'},
         subtitle1: {fontSize: '12px', fontWeight: 400, color: '#747474'},
         subtitle2: {fontSize: '14px', fontWeight: 500, color: '#737373'},
         h6: {fontSize: '12px', fontWeight: 700, color: '#979797', letterSpacing: '0.15em'}

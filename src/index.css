@@ -68,7 +68,7 @@ code {
 
 .add-button {
   position: absolute;
-  right: 0%;
+  right: 0;
 }
 
 
@@ -99,8 +99,8 @@ code {
   }
 
   .edit-button{
-    position: absolute;
-    right: 0;
+    position: relative;
+    /*left: 20%;*/
 
   }
 

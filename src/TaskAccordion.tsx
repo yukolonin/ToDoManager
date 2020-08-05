@@ -1,6 +1,7 @@
 import React from "react";
 
 import Accordion from '@material-ui/core/Accordion';
+import AccordionActions from '@material-ui/core/AccordionActions';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Box from '@material-ui/core/Box';
@@ -63,15 +64,19 @@ function TaskAccordion(prop: {
                         </Box>
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                    <div>
+                {/*<AccordionDetails>*/}
+                {/*    <div className='edit-button'>*/}
+                        <AccordionActions>
                         <Button
                             onClick={(event: any) => {handleEditClick(event, prop.task)}}
                         >
-                            Edit
+                            <Typography variant='button'>
+                                Edit
+                            </Typography>
                         </Button>
-                    </div>
-                </AccordionDetails>
+                            </AccordionActions>
+                {/*    </div>*/}
+                {/*</AccordionDetails>*/}
             </Accordion>
         </div>
     )

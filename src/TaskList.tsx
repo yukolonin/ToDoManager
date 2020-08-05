@@ -44,9 +44,7 @@ function TaskList(prop: {
                     <div className="add-button">
                         <Button variant='text' onClick={(event: any) => {handleNewClick(event)}}>
                             <Typography variant='button'>
-                                <Box fontSize='14px'>
                                     Курлык
-                                </Box>
                             </Typography>
                         </Button>
                     </div>
