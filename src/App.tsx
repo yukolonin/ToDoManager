@@ -53,9 +53,7 @@ function App() {
     })
 
     const [menuOn, setMenuOn] = React.useState<boolean>(false);
-
     const[isNew, setIsNew] = React.useState<boolean>(true);
-
     const [sideTask, setSideTask] = React.useState<Task>(DefaultTask)
 
     return (
