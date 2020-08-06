@@ -20,16 +20,7 @@ import {TaskListContext} from "./TaskListContext";
 function TaskAccordion(prop: {
     task: Task,
 }) {
-
-    // const handleEditClick = (
-    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    //     task: Task
-    // ) => {
-    //     prop.setMenuOn(true);
-    //     prop.setSideTask(task);
-    //     prop.setIsNew(false);
-    // };
-
+    
     const{state, dispatch} = React.useContext(TaskListContext);
 
     const handleEditClickContext = () => {

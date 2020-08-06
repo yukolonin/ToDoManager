@@ -29,17 +29,12 @@ function SideMenu() {
                     group: localGroup,
                     id: localId,
                     checked: localChecked,
-                },
-            }
-        )
-    }
+                }})}
 
     const handleDiscardClickContext = () => {
         dispatch({
                 type: 'DISCARD',
-            }
-        )
-    }
+            })}
 
     const [localDate, setDate] = React.useState<string>(state.sideTask.date);
     const [localTask, setTask] = React.useState<string>(state.sideTask.task);
@@ -64,41 +59,6 @@ function SideMenu() {
     ) => {
         setGroup(group);
     };
-    //
-    // const handleOkClick = (
-    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    //     oldTask: Task,
-    //     newTask: Task, // Probably unnecessary
-    //     isNew: boolean,
-    //     taskList: Array<Task>
-    // ) => {
-    //
-    //     newTask = {date: date, task: task, group: group}
-    //
-    //     if (isNew) {
-    //         prop.setTaskList([...taskList, newTask]) // Tight spot
-    //     }
-    //     else {
-    //         // Updating the task by replacing it in array via splice
-    //         let taskListOut = taskList.map((a) => (a))
-    //         for (let i = 0; i < taskListOut.length; i++) {
-    //             if (taskListOut[i].task === oldTask.task) {
-    //                 taskListOut.splice(i, 1, newTask) // Might work wrong, dunno
-    //             }
-    //         }
-    //         prop.setTaskList(taskListOut);
-    //     }
-    //     prop.setMenuOn(false);
-    // };
-    //
-    // const handleDiscardClick = (
-    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    // ) => {
-    //     prop.setMenuOn(false);
-    // };
-    //
-    //
-    // let tlOut = prop.tl.map((a) => (a))
 
     return (
         <div className="side-menu">
