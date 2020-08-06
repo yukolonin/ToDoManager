@@ -21,9 +21,8 @@ function SideMenu() {
     const{state, dispatch} = React.useContext(TaskListContext);
 
     const handleOkClickContext = () => {
-        // TODO: Add EDIT fork!
         dispatch({
-                type: 'ADD_TASK',
+                type: state.isNew ? 'ADD_TASK' : 'EDIT_TASK',
                 payload: {date: localDate, task: localTask, group: localGroup},
             }
         )

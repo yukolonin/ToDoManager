@@ -4,7 +4,6 @@ import Task from "./Task";
 import DefaultTask from "./DefaultTask";
 
 
-
 type InitialStateType = {
     taskList: Task[],
     isMenuOn: boolean,
@@ -51,32 +50,22 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
                 isNew: true,
                 sideTask: DefaultTask, // TIGHT SPOT
             };
+            // TODO: 'Edit task' handler
         case "EDIT_TASK":
             return {
-                // contacts: state.contacts.filter(
-                //     (contact: any) => contact.id !== action.payload
-                // )
                 ...state,
-
             };
         case "ADD_OPEN":
             return {
-                ...state,
-                isMenuOn: true,
-                isNew: true,
-                sideTask: DefaultTask,
+                ...state, isMenuOn: true, isNew: true, sideTask: DefaultTask,
             };
         case "EDIT_OPEN":
             return {
-                ...state,
-                isMenuOn: true,
-                isNew: false,
-                sideTask: action.payload
+                ...state, isMenuOn: true, isNew: false, sideTask: action.payload
             };
         case "DISCARD":
             return {
-                ...state,
-                isMenuOn: false,
+                ...state, isMenuOn: false,
             };
         default:
             throw new Error();
