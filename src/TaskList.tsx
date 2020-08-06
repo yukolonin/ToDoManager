@@ -32,15 +32,6 @@ function TaskList(prop: {
         )
     }
 
-    // const handleNewClick = (
-    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    // ) => {
-    //     prop.setMenuOn(true);
-    //     prop.setIsNew(true);
-    //     prop.setSideTask(DefaultTask);
-    // };
-
-    // let taskListOut = prop.tl.map((a) => (a))
     let taskListOut: Task[] = state.taskList.map((a) => (a))
 
     return (
@@ -53,7 +44,6 @@ function TaskList(prop: {
                             </Box>
                         </Typography>
                     <div className="add-button">
-                        {/*<Button variant='text' onClick={(event: any) => {handleNewClick(event)}}>*/}
                         <Button variant='text' onClick={handleNewClickContext}>
                             <Typography variant='button'>
                                     Курлык
@@ -67,7 +57,6 @@ function TaskList(prop: {
                         <div>
                             <ListItem key={task.date}>
                                 <Typography variant='h6'>{task.date}</Typography>
-                                {/*<ListItemText>{task.date}</ListItemText>*/}
                             </ListItem>
                         </div>
                     :

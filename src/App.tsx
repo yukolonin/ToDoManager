@@ -44,24 +44,6 @@ const theme = createMuiTheme({
 
 function App() {
 
-
-    const{state, dispatch} = React.useContext(TaskListContext);
-
-
-    // // One of two strings below on choice determine empty start or some ready data
-    // const [taskList, setTaskList] = React.useState<Array<Task>>(
-    //     // JSON.parse(localStorage.getItem('taskList') || '[]')
-    //     JSON.parse(localStorage.getItem('taskList') || JSON.stringify(tl))
-    // );
-
-    // useEffect(() => {
-    //     // localStorage.setItem('taskList', JSON.stringify(taskList))
-    // })
-
-    // const [menuOn, setMenuOn] = React.useState<boolean>(false);
-    // const[isNew, setIsNew] = React.useState<boolean>(true);
-    // const [sideTask, setSideTask] = React.useState<Task>(DefaultTask)
-
     return (
         <TaskListContextProvider>
             <MuiThemeProvider theme={theme}>

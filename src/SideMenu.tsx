@@ -16,15 +16,7 @@ import TaskAccordion from "./TaskAccordion";
 import TaskAccordionDead from "./TaskAccordionDead";
 import {TaskListContext} from "./TaskListContext";
 
-function SideMenu(prop: {
-    // isNew: boolean,
-    // task: Task,
-    // tl: Array<Task>,
-    // setTaskList: any,
-    // setMenuOn: any,
-    // setIsNew: any,
-    // setSideTask: any
-}) {
+function SideMenu() {
 
     const{state, dispatch} = React.useContext(TaskListContext);
 
@@ -44,24 +36,9 @@ function SideMenu(prop: {
         )
     }
 
-    // const oldTask: Task = DefaultTask;
-    // Object.assign(oldTask, prop.task);
-    //
-    // let newTask: Task = DefaultTask;
-    // Object.assign(newTask, prop.task);
-    //
-
-
-
-    // const [localDate, setDate] = React.useState<string>(prop.task.date);
-    // const [localTask, setTask] = React.useState<string>(prop.task.task);
-    // const [localGroup, setGroup] = React.useState(prop.task.group);
     const [localDate, setDate] = React.useState<string>(state.sideTask.date);
     const [localTask, setTask] = React.useState<string>(state.sideTask.task);
     const [localGroup, setGroup] = React.useState(state.sideTask.group);
-
-
-
 
     const handleDateChange = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -158,16 +135,7 @@ function SideMenu(prop: {
                         </Typography>
                     </Button>
 
-                    <Button
-                        // onClick={(event: any) => {handleOkClick(
-                        //     event,
-                        //     oldTask,
-                        //     prop.task,
-                        //     prop.isNew,
-                        //     prop.tl
-                        // )}}
-                        onClick={handleOkClickContext}
-                    >
+                    <Button onClick={handleOkClickContext}>
                         <Typography variant='button'>
                             Ok
                         </Typography>

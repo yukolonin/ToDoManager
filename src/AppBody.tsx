@@ -45,37 +45,9 @@ function AppBody() {
 
     return (
                 <div>
-                <Sidebar
-                    // tl={taskList}
-                    // setTaskList={setTaskList}
-                    // setMenuOn={setMenuOn}
-                    // setIsNew={setIsNew}
-                    // setSideTask={setSideTask}
-                />
-
-                {/*{state.isMenuOn && <SideMenu*/}
-
-                {state.isMenuOn ? <SideMenu/> : <></>}
-
-                {state.isMenuOn===false ?
-                    <h1>HUIHUIHUIHUIHUIHUIHUIHUI{JSON.stringify(state.isMenuOn)}</h1>
-                    :
-                    <h1>PIZDAPIZDAPIZDAPIZDAPIZDAPIZDAPIZDAPIZDAPIZDAPIZDAPIZDAPIZDA</h1>}
-
-                {/*{state.isMenuOn && <SideMenu*/}
-                {/*    */}
-
-                {/*    // isNew={isNew}*/}
-                {/*    // task={sideTask}*/}
-                {/*    // tl={taskList}*/}
-                {/*    // setTaskList={setTaskList}*/}
-                {/*    // setMenuOn={setMenuOn}*/}
-                {/*    // setIsNew={setIsNew}*/}
-                {/*    // setSideTask={setSideTask}*/}
-                {/*/>}*/}
-
+                    <Sidebar/>
+                    {state.isMenuOn && <SideMenu/>}
                 </div>
-
     )
 }
 

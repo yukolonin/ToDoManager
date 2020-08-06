@@ -11,17 +11,9 @@ import {TaskListContext} from "./TaskListContext";
 
 
 
-function Sidebar(prop: {
-    // tl: Array<Task>,
-    // setTaskList: any,
-    // setMenuOn: any,
-    // setIsNew: any,
-    // setSideTask: any
-}) {
-
+function Sidebar() {
 
     const{state, dispatch} = React.useContext(TaskListContext);
-
 
     const [selectedIndex, setSelectedIndex] = React.useState<Groups>(Groups.ALL);
 
@@ -44,25 +36,12 @@ function Sidebar(prop: {
                             onClick={(
                                 event: React.MouseEvent<HTMLDivElement, MouseEvent>
                             ) =>
-                                handleListItemClick(event, value)
-                            }
+                                handleListItemClick(event, value)}
                             />
                     ))}
-
-                    // OTLADOCHNY PRINT
-                    <Typography>{JSON.stringify(state)}</Typography>
-
-
                 </List>
             </div>
-            <TaskList
-                group={selectedIndex}
-                // tl={prop.tl}
-                // setTaskList={prop.setTaskList}
-                // setMenuOn={prop.setMenuOn}
-                // setIsNew={prop.setIsNew}
-                // setSideTask={prop.setSideTask}
-            />
+            <TaskList group={selectedIndex}/>
         </div>
     )
 }
