@@ -40,6 +40,9 @@ function Sidebar() {
                             />
                     ))}
                 </List>
+                {/*<Typography>{*/}
+                {/*    JSON.stringify([state.isMenuOn, state.isNew, state.sideTask])*/}
+                {/*}</Typography>*/}
             </div>
             <TaskList group={selectedIndex}/>
         </div>

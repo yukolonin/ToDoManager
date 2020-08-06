@@ -14,6 +14,7 @@ import CircleCheckedFilled from '@material-ui/icons/CheckCircle';
 import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 import Task from "./Task";
+import {TaskListContext} from "./TaskListContext";
 
 
 function TaskAccordion(prop: {
@@ -28,6 +29,16 @@ function TaskAccordion(prop: {
     //     prop.setSideTask(task);
     //     prop.setIsNew(false);
     // };
+
+    const{state, dispatch} = React.useContext(TaskListContext);
+
+    const handleEditClickContext = () => {
+        dispatch({
+            type: 'EDIT_OPEN',
+            payload: prop.task
+            }
+        )
+    }
 
     const [checked, setChecked] = React.useState<boolean>(false);
     const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {setChecked(!checked)};
@@ -65,7 +76,7 @@ function TaskAccordion(prop: {
                 </AccordionSummary>
                         <AccordionActions>
                             <Button
-                                // onClick={(event: any) => {handleEditClickContext(event, prop.task)}}
+                                onClick={handleEditClickContext}
                             >
                                 <Typography variant='button'>
                                     Edit

@@ -23,7 +23,13 @@ function SideMenu() {
     const handleOkClickContext = () => {
         dispatch({
                 type: state.isNew ? 'ADD_TASK' : 'EDIT_TASK',
-                payload: {date: localDate, task: localTask, group: localGroup},
+                payload: {
+                    date: localDate,
+                    task: localTask,
+                    group: localGroup,
+                    id: localId,
+                    checked: localChecked,
+                },
             }
         )
     }
@@ -37,7 +43,9 @@ function SideMenu() {
 
     const [localDate, setDate] = React.useState<string>(state.sideTask.date);
     const [localTask, setTask] = React.useState<string>(state.sideTask.task);
-    const [localGroup, setGroup] = React.useState(state.sideTask.group);
+    const [localGroup, setGroup] = React.useState<Groups>(state.sideTask.group);
+    const localId: string = state.sideTask.id;
+    const localChecked: boolean = state.sideTask.checked;
 
     const handleDateChange = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -126,7 +134,6 @@ function SideMenu() {
 
                 <div className='sidemenu-buttons'>
                     <Button
-                        // onClick={(event: any) => {handleDiscardClick(event)}}
                         onClick={handleDiscardClickContext}
                     >
                         <Typography variant='button'>

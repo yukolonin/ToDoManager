@@ -13,11 +13,11 @@ type InitialStateType = {
 
 const initialState: InitialStateType = {
     taskList: [
-        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
-        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
-        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
-        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
-        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
+        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ, id: '11111', checked: false},
+        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ, id: '22222', checked: false},
+        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ, id: '33333', checked: false},
+        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ, id: '44444', checked: false},
+        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ, id: '55555', checked: false}
     ],
     isMenuOn: false,
     isNew: true,
@@ -48,12 +48,19 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
                 taskList: [...state.taskList, action.payload],
                 isMenuOn: true,
                 isNew: true,
-                sideTask: DefaultTask, // TIGHT SPOT
+                sideTask: DefaultTask,
             };
             // TODO: 'Edit task' handler
         case "EDIT_TASK":
+
             return {
                 ...state,
+                taskList: state.taskList.map((task: Task) => (
+                    task.id === action.payload.id ? action.payload : task
+                )),
+                isMenuOn: false,
+                sideTask: DefaultTask,
+
             };
         case "ADD_OPEN":
             return {

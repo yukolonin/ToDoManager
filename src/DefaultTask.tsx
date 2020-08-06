@@ -7,7 +7,9 @@ import Groups from "./Groups";
 let DefaultTask: Task = {
     date: '04/20/1986',
     task: '',
-    group: Groups.ВИЛКИ
+    group: Groups.ВИЛКИ,
+    id: JSON.stringify(Date.now()),
+    checked: false,
 }
 
 export default DefaultTask

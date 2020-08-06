@@ -9,13 +9,13 @@ import Task from './Task'
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 
 //-----------------
-let tl: Array<Task> = [
-    {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
-    {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
-    {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
-    {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
-    {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
-]
+// let tl: Array<Task> = [
+//     {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
+//     {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
+//     {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
+//     {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
+//     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
+// ]
 //-----------------
 
 

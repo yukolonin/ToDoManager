@@ -31,7 +31,14 @@ function InsertDates(tasklist: Array<Task>, group: Groups) {
         tasklist.splice(
             dates[i],
             0,
-            {date: tasklist[dates[i]].date, task: '', group: Groups.DATE})
+            {
+                date: tasklist[dates[i]].date,
+                task: '',
+                group: Groups.DATE,
+                id: 'NaN',
+                checked: false
+            }
+            )
     }
     return tasklist
 }
