@@ -8,10 +8,6 @@ import SideMenu from "./SideMenu";
 import Task from './Task'
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 
-
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
-
 //-----------------
 let tl: Array<Task> = [
     {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},

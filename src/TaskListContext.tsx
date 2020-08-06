@@ -45,7 +45,6 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
     switch (action.type) {
         case "ADD_TASK":
             return {
-                // contacts: [...state.contacts, action.payload]
                 ...state,
                 taskList: [...state.taskList, action.payload],
                 isMenuOn: true,
@@ -62,7 +61,6 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
             };
         case "ADD_OPEN":
             return {
-                // loading: true
                 ...state,
                 isMenuOn: true,
                 isNew: true,
