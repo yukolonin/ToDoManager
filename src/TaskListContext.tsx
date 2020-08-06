@@ -33,6 +33,11 @@ export const TaskListContext = createContext<{
     dispatch: () => null
 });
 
+type TaskListAction = {
+    type: string;
+    payload: Task; // TODO: when processing 'Edit' would probably need two args here
+}
+
 const reducer: Reducer<InitialStateType, TaskListAction> = (
     state: InitialStateType,
     action: TaskListAction
@@ -67,12 +72,6 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
             throw new Error();
     }
 };
-
-type TaskListAction = {
-    type: string;
-    payload: Task; // TODO: when processing 'Edit' would probably need two args here
-}
-
 
 export const TaskListContextProvider = (props: any) => {
     const [state, dispatch] = useReducer(reducer, initialState);
