@@ -18,21 +18,16 @@ import Task from "./Task";
 
 function TaskAccordion(prop: {
     task: Task,
-    taskList: Array<Task>,
-    setMenuOn: any,
-    setTaskList: any,
-    setIsNew: any,
-    setSideTask: any
 }) {
 
-    const handleEditClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        task: Task
-    ) => {
-        prop.setMenuOn(true);
-        prop.setSideTask(task);
-        prop.setIsNew(false);
-    };
+    // const handleEditClick = (
+    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    //     task: Task
+    // ) => {
+    //     prop.setMenuOn(true);
+    //     prop.setSideTask(task);
+    //     prop.setIsNew(false);
+    // };
 
     const [checked, setChecked] = React.useState<boolean>(false);
     const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {setChecked(!checked)};
@@ -70,7 +65,7 @@ function TaskAccordion(prop: {
                 </AccordionSummary>
                         <AccordionActions>
                             <Button
-                                onClick={(event: any) => {handleEditClick(event, prop.task)}}
+                                // onClick={(event: any) => {handleEditClickContext(event, prop.task)}}
                             >
                                 <Typography variant='button'>
                                     Edit

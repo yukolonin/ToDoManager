@@ -46,27 +46,39 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
         case "ADD_TASK":
             return {
                 // contacts: [...state.contacts, action.payload]
-                ...state
+                ...state,
+                taskList: [...state.taskList, action.payload],
+                isMenuOn: true,
+                isNew: true,
+                sideTask: DefaultTask, // TIGHT SPOT
             };
         case "EDIT_TASK":
             return {
                 // contacts: state.contacts.filter(
                 //     (contact: any) => contact.id !== action.payload
                 // )
-                ...state
+                ...state,
+
             };
-        case "ADD-OPEN":
+        case "ADD_OPEN":
             return {
                 // loading: true
-                ...state
+                ...state,
+                isMenuOn: true,
+                isNew: true,
+                sideTask: DefaultTask,
             };
-        case "EDIT-OPEN":
+        case "EDIT_OPEN":
             return {
-                ...state
+                ...state,
+                isMenuOn: true,
+                isNew: false,
+                sideTask: action.payload
             };
         case "DISCARD":
             return {
-                ...state
+                ...state,
+                isMenuOn: false,
             };
         default:
             throw new Error();

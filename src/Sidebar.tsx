@@ -6,14 +6,22 @@ import SidebarItem from "./SidebarItem";
 import TaskList from "./TaskList";
 import Task from "./Task";
 
+import Typography from '@material-ui/core/Typography'
+import {TaskListContext} from "./TaskListContext";
+
+
 
 function Sidebar(prop: {
-    tl: Array<Task>,
-    setTaskList: any,
-    setMenuOn: any,
-    setIsNew: any,
-    setSideTask: any
+    // tl: Array<Task>,
+    // setTaskList: any,
+    // setMenuOn: any,
+    // setIsNew: any,
+    // setSideTask: any
 }) {
+
+
+    const{state, dispatch} = React.useContext(TaskListContext);
+
 
     const [selectedIndex, setSelectedIndex] = React.useState<Groups>(Groups.ALL);
 
@@ -40,15 +48,20 @@ function Sidebar(prop: {
                             }
                             />
                     ))}
+
+                    // OTLADOCHNY PRINT
+                    <Typography>{JSON.stringify(state)}</Typography>
+
+
                 </List>
             </div>
             <TaskList
                 group={selectedIndex}
-                tl={prop.tl}
-                setTaskList={prop.setTaskList}
-                setMenuOn={prop.setMenuOn}
-                setIsNew={prop.setIsNew}
-                setSideTask={prop.setSideTask}
+                // tl={prop.tl}
+                // setTaskList={prop.setTaskList}
+                // setMenuOn={prop.setMenuOn}
+                // setIsNew={prop.setIsNew}
+                // setSideTask={prop.setSideTask}
             />
         </div>
     )
