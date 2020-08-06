@@ -33,7 +33,10 @@ export const TaskListContext = createContext<{
     dispatch: () => null
 });
 
-const reducer: Reducer<InitialStateType, TaskListAction> = (state: InitialStateType, action: TaskListAction) => { // TODO: any -> arrow function
+const reducer: Reducer<InitialStateType, TaskListAction> = (
+    state: InitialStateType,
+    action: TaskListAction
+) => {
     switch (action.type) {
         case "ADD_TASK":
             return {
