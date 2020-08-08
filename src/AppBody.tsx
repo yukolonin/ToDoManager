@@ -20,7 +20,7 @@ import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 
 
 function AppBody() {
-
+    // TODO: Clean comments
 
     const{state, dispatch} = React.useContext(TaskListContext);
 

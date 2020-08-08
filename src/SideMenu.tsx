@@ -88,6 +88,7 @@ function SideMenu() {
                 <div className='sidemenu-group-block'>
                     <SelectGroup2
                     // TODO: add default group as with task and date
+                    group={localGroup}
                     onChange={handleGroupChange}
                     />
                 </div>
