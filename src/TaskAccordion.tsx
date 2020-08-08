@@ -15,24 +15,38 @@ import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 import Task from "./Task";
 import {TaskListContext} from "./TaskListContext";
+import DefaultTask from "./DefaultTask";
 
 
 function TaskAccordion(prop: {
     task: Task,
 }) {
-    
+
     const{state, dispatch} = React.useContext(TaskListContext);
 
     const handleEditClickContext = () => {
         dispatch({
             type: 'EDIT_OPEN',
-            payload: prop.task
+            payload: prop.task,
             }
         )
     }
 
-    const [checked, setChecked] = React.useState<boolean>(false);
-    const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {setChecked(!checked)};
+    const [checked, setChecked] = React.useState<boolean>(prop.task.checked);
+
+    let checkTask: (arg0: Task) => Task = (task) => {
+        task.checked = !task.checked
+        return task;
+    }
+
+    const handleCheckContext = () => {
+        setChecked(!checked);
+
+        dispatch({
+            type: 'CHECK',
+            payload: checkTask(prop.task)
+        })
+    }
 
     return (
         <div className="task-accordion">
@@ -47,10 +61,11 @@ function TaskAccordion(prop: {
                         onClick={(event) => event.stopPropagation()}
                         onFocus={(event) => event.stopPropagation()}
                         control={<Checkbox
+                            checked={checked}
                             className='checkbox'
                             icon={<CircleUnchecked />}
                             checkedIcon={<CircleCheckedFilled />}
-                            onChange={handleCheck}
+                            onChange={handleCheckContext}
                         />}
                         label={checked ? <s>{prop.task.task}</s> : prop.task.task}
                     />

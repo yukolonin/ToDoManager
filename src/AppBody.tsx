@@ -24,6 +24,16 @@ function AppBody() {
 
     const{state, dispatch} = React.useContext(TaskListContext);
 
+    // dispatch({
+    //         type: 'LOCAL_STORAGE_UPDATE',
+    //     }
+    // )
+
+    // state.taskList = JSON.parse(
+    //     localStorage.getItem('taskList')
+    //     ||
+    //     JSON.stringify(state.taskList));
+
 
     // // One of two strings below on choice determine empty start or some ready data
     // const [taskList, setTaskList] = React.useState<Array<Task>>(
@@ -34,6 +44,10 @@ function AppBody() {
     // useEffect(() => {
     //     // localStorage.setItem('taskList', JSON.stringify(taskList))
     // })
+
+    useEffect(() => {
+        localStorage.setItem('taskList', JSON.stringify(state.taskList))
+    })
 
     // const [menuOn, setMenuOn] = React.useState<boolean>(false);
     // const[isNew, setIsNew] = React.useState<boolean>(true);

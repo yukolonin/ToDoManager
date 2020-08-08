@@ -40,9 +40,15 @@ function Sidebar() {
                             />
                     ))}
                 </List>
+                {/*/!*Debug print*!/*/}
                 {/*<Typography>{*/}
-                {/*    JSON.stringify([state.isMenuOn, state.isNew, state.sideTask])*/}
-                {/*}</Typography>*/}
+                {/*    JSON.stringify([state.taskList.map((task) => ([*/}
+                {/*        task.task,*/}
+                {/*        task.checked,*/}
+                {/*        task.id*/}
+                {/*    ]))])*/}
+                {/*}*/}
+                {/*</Typography>*/}
             </div>
             <TaskList group={selectedIndex}/>
         </div>
