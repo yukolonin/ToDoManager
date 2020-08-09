@@ -15,7 +15,6 @@ import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 import Task from "./Task";
 import {TaskListContext} from "./TaskListContext";
-import DefaultTask from "./DefaultTask";
 
 
 function TaskAccordion(prop: {

@@ -109,33 +109,32 @@ function SideMenu() {
                     </Button>
                 </div>
 
-                {/*{prop.isNew*/}
-                {/*    ? <></> :*/}
-                {/*        <div>*/}
-                {/*            <List>*/}
-                {/*                <ListItem>*/}
-                {/*                    <div>*/}
-                {/*                        <ListItemText>Similar tasks</ListItemText>*/}
-                {/*                    </div>*/}
-                {/*                </ListItem>*/}
-                {/*             Similar tasks appear if menu is called by "Edit" button */}
-                {/*            TODO: Get rid of TADead, replace it by 'inactive' property for TA*/}
-                {/*                {tlOut.map((task: Task) => (*/}
-                {/*                    // Task is considered "similar" if its first word matches*/}
-                {/*                    task.task.split(' ')[0] === prop.task.task.split(' ')[0]*/}
-                {/*                    &&*/}
-                {/*                    task.task !== prop.task.task*/}
-                {/*                        ?*/}
-                {/*                            <TaskAccordionDead*/}
-                {/*                                task={task}*/}
-                {/*                                taskList={prop.tl}*/}
-                {/*                            />*/}
-                {/*                        :*/}
-                {/*                            <></>*/}
-                {/*                ))}*/}
-                {/*            </List>*/}
-                {/*        </div>*/}
-                {/*}*/}
+                {state.isNew
+                    ? <></> :
+                        <div>
+                            <List>
+                                <ListItem>
+                                    <div>
+                                        <ListItemText>Similar tasks</ListItemText>
+                                    </div>
+                                </ListItem>
+                            {/* Similar tasks appear if menu is called by "Edit" button */}
+                            {/*TODO: Get rid of TADead, replace it by 'inactive' property for TA*/}
+                                {state.taskList.map((task: Task) => (
+                                    // Task is considered "similar" if its first word matches
+                                    task.task.split(' ')[0] === state.sideTask.task.split(' ')[0]
+                                    &&
+                                    task.id !== state.sideTask.id
+                                        ?
+                                            <TaskAccordionDead
+                                                task={task}
+                                            />
+                                        :
+                                            <></>
+                                ))}
+                            </List>
+                        </div>
+                }
             </div>
         </div>
     )
