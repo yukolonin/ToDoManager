@@ -7,6 +7,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import TextField from '@material-ui/core/TextField'
+import Event from '@material-ui/icons/Event'
 
 import DefaultTask from "./DefaultTask";
 import Groups from "./Groups";
@@ -84,16 +85,18 @@ function SideMenu() {
                 />
 
                 {/*Instead of DatePicker module for now */}
-                <Input
-                    id="task-date"
-                    color='primary'
-                    placeholder="--/--/----"
-                    value={localDate}
-                    onChange={handleDateChange}
-                />
+                <div>
+                    <Event color='secondary'/>
+                    <Input
+                        id="task-date"
+                        color='primary'
+                        placeholder="--/--/----"
+                        value={localDate}
+                        onChange={handleDateChange}
+                    />
+                </div>
                 <div className='sidemenu-group-block'>
                     <SelectGroup2
-                    // TODO: add default group as with task and date
                     group={localGroup}
                     onChange={handleGroupChange}
                     />
