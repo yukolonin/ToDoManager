@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box';
 import {Button} from '@material-ui/core'
@@ -59,6 +59,12 @@ function SideMenu() {
     ) => {
         setGroup(group);
     };
+
+    useEffect(() => {
+        setDate(state.sideTask.date);
+        setTask(state.sideTask.task);
+        setGroup(state.sideTask.group);
+    })
 
     return (
         <div className="side-menu">
