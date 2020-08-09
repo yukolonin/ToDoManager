@@ -13,7 +13,7 @@ type InitialStateType = {
 
 const initialState: InitialStateType = {
     taskList: JSON.parse(
-        // Comment and uncomment next two lines to reset the localStorage
+        // // Comment and uncomment next two lines to reset the localStorage
         localStorage.getItem('taskList')
         ||
         JSON.stringify([

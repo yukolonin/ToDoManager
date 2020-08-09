@@ -4,10 +4,18 @@ import Task from "./Task";
 import Groups from "./Groups";
 
 
-let id = JSON.stringify(new Date().getUTCMilliseconds())
+let tomorrow: string = ''
+    + (new Date().getDate() + 1)
+    + '/'
+    + (new Date().getMonth() + 1)
+    + '/'
+    + new Date().getFullYear()
+
+
 // TODO: Add default date extracted from system date
 let DefaultTask: Task = {
-    date: '04/20/1986',
+    // date: '04/20/1986',
+    date: tomorrow,
     task: '',
     group: Groups.ВИЛКИ,
     id: '31181734',
