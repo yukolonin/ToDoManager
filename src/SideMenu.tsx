@@ -108,7 +108,8 @@ function SideMenu() {
                         </Typography>
                     </Button>
                 </div>
-
+            </div>
+            <div className='similar-tasks'>
                 {state.isNew
                     ? <></> :
                         <div>

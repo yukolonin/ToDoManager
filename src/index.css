@@ -187,3 +187,7 @@ code {
   width: 100%;
   justify-content: flex-end;
 }
+
+.similar-tasks{
+  width: 96%;
+}
