@@ -44,7 +44,7 @@ function Sidebar() {
                 {/*<Typography>{*/}
                 {/*    JSON.stringify([state.taskList.map((task) => ([*/}
                 {/*        task.task,*/}
-                {/*        task.checked,*/}
+                {/*        // task.checked,*/}
                 {/*        task.id*/}
                 {/*    ]))])*/}
                 {/*    // JSON.stringify(state.taskList)*/}

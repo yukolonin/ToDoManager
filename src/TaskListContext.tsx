@@ -17,11 +17,11 @@ const initialState: InitialStateType = {
         localStorage.getItem('taskList')
         ||
         JSON.stringify([
-            {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ, id: '11111', checked: false},
-            {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ, id: '22222', checked: false},
-            {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ, id: '33333', checked: false},
-            {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ, id: '44444', checked: false},
-            {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ, id: '55555', checked: false}
+            // {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ, id: '11111', checked: false},
+            // {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ, id: '22222', checked: false},
+            // {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ, id: '33333', checked: false},
+            // {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ, id: '44444', checked: false},
+            // {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ, id: '55555', checked: false}
         ])),
     isMenuOn: false,
     isNew: true,
@@ -66,15 +66,23 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
             };
         case "ADD_OPEN":
             return {
-                ...state, isMenuOn: true, isNew: true, sideTask: DefaultTask,
+                ...state,
+                isMenuOn: true,
+                isNew: true,
+                // sideTask: DefaultTask,
+                sideTask: action.payload,
             };
         case "EDIT_OPEN":
             return {
-                ...state, isMenuOn: true, isNew: false, sideTask: action.payload
+                ...state,
+                isMenuOn: true,
+                isNew: false,
+                sideTask: action.payload,
             };
         case "DISCARD":
             return {
-                ...state, isMenuOn: false,
+                ...state,
+                isMenuOn: false,
             };
         case "CHECK":
             return {

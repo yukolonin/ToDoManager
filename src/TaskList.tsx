@@ -28,8 +28,11 @@ function TaskList(prop: {
     const{state, dispatch} = React.useContext(TaskListContext);
 
     const handleNewClickContext = () => {
+        let newTask: Task = DefaultTask;
+        newTask.id = JSON.stringify(Date.now());
         dispatch({
            type: 'ADD_OPEN',
+            payload: newTask,
             }
         )
     }
