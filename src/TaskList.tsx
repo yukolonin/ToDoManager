@@ -40,9 +40,8 @@ function TaskList(prop: {
     let taskListOut: Task[] = state.taskList.map((a) => (a))
 
     return (
-        <div className="task-list">
-            {/*{state.taskList !== [] ?*/}
-            {state.taskList.length !== 0 ? // Might be a nicer way to do the same
+        state.taskList.length !== 0 ? // Might be a nicer way to do the same
+            <div className="task-list">
                 <List>
                     <ListItem className='tasklist-header'>
                         <Typography className="tasklist-header-text" component='div'>
@@ -76,18 +75,18 @@ function TaskList(prop: {
                             </div>
                     ))}
                 </List>
-
-                :
-
-                <div className="tasklist-empty">
+            </div>
+            :
+            <div className="tasklist-empty">
+                <div className="tasklist-empty-item">
                     <Typography className="tasklist-empty-header">
                         <Box fontWeight='fontWeightMedium' fontSize='18px'>
                             Сколько истребителей было?
                         </Box>
                     </Typography>
-                    <Typography className="tasklist-empty-text">
+                    <Typography className="tasklist-empty-text" color='primary'>
                         <Box fontWeight='fontWeightMedium' fontSize='14px'>
-                            Будьте ж вы людьми
+                            БУДЬТЕ Ж ВЫ ЛЮДЬМИ
                         </Box>
                     </Typography>
                     <IconButton
@@ -99,8 +98,9 @@ function TaskList(prop: {
                         <AddCircleRoundedIcon />
                     </IconButton>
                 </div>
-            }
-        </div>
+            </div>
+
+
     )
 }
 
