@@ -65,7 +65,7 @@ function SideMenu() {
         setDate(state.sideTask.date);
         setTask(state.sideTask.task);
         setGroup(state.sideTask.group);
-    })
+    }, [state.sideTask])
 
     return (
         <div className="side-menu">
