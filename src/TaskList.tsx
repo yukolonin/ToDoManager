@@ -25,6 +25,27 @@ function TaskList(prop: {
     // setSideTask: any
 }){
 
+    let today: string = ''
+        + new Date().getDate()
+        + '/'
+        + (new Date().getMonth() + 1)
+        + '/'
+        + new Date().getFullYear();
+    if (today.split('/')[0].length === 1) {
+        today = '0' + today
+    }
+
+
+    let tomorrow: string = ''
+        + (new Date().getDate() + 1)
+        + '/'
+        + (new Date().getMonth() + 1)
+        + '/'
+        + new Date().getFullYear();
+    if (tomorrow.split('/')[0].length === 1) {
+        tomorrow = '0' + tomorrow
+    }
+
     const{state, dispatch} = React.useContext(TaskListContext);
 
     const handleNewClickContext = () => {
@@ -62,8 +83,18 @@ function TaskList(prop: {
                         task.group === "DATE" || task.group === "All" ?
                             <div>
                                 <ListItem key={task.date}>
-                                    <Typography variant='h6'>{task.date}</Typography>
-                                </ListItem>
+                                    <Typography variant='h6'>{
+                                        task.date === today ?
+                                            'Today'
+                                            :
+                                            (task.date === tomorrow ?
+                                                'Tomorrow'
+                                                :
+                                                task.date
+                                            )
+                                    }
+
+                                    </Typography></ListItem>
                             </div>
                             :
                             <div>

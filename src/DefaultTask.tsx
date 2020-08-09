@@ -14,7 +14,6 @@ let tomorrow: string = ''
 
 // TODO: Add default date extracted from system date
 let DefaultTask: Task = {
-    // date: '04/20/1986',
     date: tomorrow,
     task: '',
     group: Groups.ВИЛКИ,
