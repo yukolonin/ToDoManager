@@ -28,20 +28,6 @@ const initialState: InitialStateType = {
     sideTask: DefaultTask,
 };
 
-
-    localStorage.getItem('taskList')
-    ||
-    JSON.stringify([
-        {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ, id: '11111', checked: false},
-        {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ, id: '22222', checked: false},
-        {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ, id: '33333', checked: false},
-        {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ, id: '44444', checked: false},
-        {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ, id: '55555', checked: false}
-    ])
-
-
-
-
 export const TaskListContext = createContext<{
     state: InitialStateType;
     dispatch: React.Dispatch<any>;
@@ -64,7 +50,7 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
             return {
                 ...state,
                 taskList: [...state.taskList, action.payload],
-                isMenuOn: true,
+                isMenuOn: false,
                 isNew: true,
                 sideTask: DefaultTask,
             };

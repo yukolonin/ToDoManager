@@ -40,13 +40,14 @@ function Sidebar() {
                             />
                     ))}
                 </List>
-                {/*/!*Debug print*!/*/}
+                {/*Debug print*/}
                 {/*<Typography>{*/}
                 {/*    JSON.stringify([state.taskList.map((task) => ([*/}
                 {/*        task.task,*/}
                 {/*        task.checked,*/}
                 {/*        task.id*/}
                 {/*    ]))])*/}
+                {/*    // JSON.stringify(state.taskList)*/}
                 {/*}*/}
                 {/*</Typography>*/}
             </div>

@@ -1,5 +1,7 @@
 import React from 'react';
+import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import Box from '@material-ui/core/Box';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -36,40 +38,65 @@ function TaskList(prop: {
 
     return (
         <div className="task-list">
-            <List>
-                <ListItem className='tasklist-header'>
+            {/*{state.taskList !== [] ?*/}
+            {state.taskList.length !== 0 ? // Might be a nicer way to do the same
+                <List>
+                    <ListItem className='tasklist-header'>
                         <Typography className="tasklist-header-text" component='div'>
                             <Box fontWeight='fontWeightMedium' fontSize='20px'>
-                            Привет, братишка
+                                Привет, братишка
                             </Box>
                         </Typography>
-                    <div className="add-button">
-                        <Button variant='text' onClick={handleNewClickContext}>
-                            <Typography variant='button'>
+                        <div className="add-button">
+                            <Button variant='text' onClick={handleNewClickContext}>
+                                <Typography variant='button'>
                                     Курлык
-                            </Typography>
-                        </Button>
-                    </div>
-                </ListItem>
-
-                {InsertDates(taskListOut, prop.group).map((task: Task) => (
-                    task.group === "DATE" || task.group === "All" ?
-                        <div>
-                            <ListItem key={task.date}>
-                                <Typography variant='h6'>{task.date}</Typography>
-                            </ListItem>
+                                </Typography>
+                            </Button>
                         </div>
-                    :
-                        <div>
-                            <ListItem key={task.date}>
-                                <TaskAccordion
-                                    task={task}
-                                />
-                            </ListItem>
-                        </div>
-                ))}
-            </List>
+                    </ListItem>
 
+                    {InsertDates(taskListOut, prop.group).map((task: Task) => (
+                        task.group === "DATE" || task.group === "All" ?
+                            <div>
+                                <ListItem key={task.date}>
+                                    <Typography variant='h6'>{task.date}</Typography>
+                                </ListItem>
+                            </div>
+                            :
+                            <div>
+                                <ListItem key={task.date}>
+                                    <TaskAccordion
+                                        task={task}
+                                    />
+                                </ListItem>
+                            </div>
+                    ))}
+                </List>
+
+                :
+
+                <div className="tasklist-empty">
+                    <Typography className="tasklist-empty-header">
+                        <Box fontWeight='fontWeightMedium' fontSize='18px'>
+                            Сколько истребителей было?
+                        </Box>
+                    </Typography>
+                    <Typography className="tasklist-empty-text">
+                        <Box fontWeight='fontWeightMedium' fontSize='14px'>
+                            Будьте ж вы людьми
+                        </Box>
+                    </Typography>
+                    <IconButton
+                        color="primary"
+                        aria-label="upload picture"
+                        component="span"
+                        onClick={handleNewClickContext}
+                    >
+                        <AddCircleRoundedIcon />
+                    </IconButton>
+                </div>
+            }
         </div>
     )
 }
