@@ -17,7 +17,6 @@ import {TaskListContext} from "./TaskListContext";
 
 
 function TaskList(prop: {
-    group: Groups,
 }){
 
     let today: string = ''
@@ -74,7 +73,7 @@ function TaskList(prop: {
                         </div>
                     </ListItem>
 
-                    {InsertDates(taskListOut, prop.group).map((task: Task) => (
+                    {InsertDates(taskListOut, state.selectedGroup).map((task: Task) => (
                         task.group === "DATE" || task.group === "All" ?
                             <div>
                                 <ListItem key={task.date}>

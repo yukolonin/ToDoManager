@@ -1,4 +1,4 @@
-import React, {useReducer, createContext, Reducer} from "react";
+import React, {createContext, Reducer, useReducer} from "react";
 import Groups from "./Groups";
 import Task from "./Task";
 import DefaultTask from "./DefaultTask";
@@ -9,6 +9,7 @@ type InitialStateType = {
     isMenuOn: boolean,
     isNew: boolean,
     sideTask: Task,
+    selectedGroup: Groups,
 };
 
 const initialState: InitialStateType = {
@@ -26,6 +27,7 @@ const initialState: InitialStateType = {
     isMenuOn: false,
     isNew: true,
     sideTask: DefaultTask,
+    selectedGroup: Groups.ALL,
 };
 
 export const TaskListContext = createContext<{
@@ -91,6 +93,11 @@ const reducer: Reducer<InitialStateType, TaskListAction> = (
                     task.id === action.payload.id ? action.payload : task
                 )),
             };
+        case "CHANGE_GROUP":
+            return {
+                ...state,
+                selectedGroup: action.payload.group,
+            }
         default:
             throw new Error();
     }

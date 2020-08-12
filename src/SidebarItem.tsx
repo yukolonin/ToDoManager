@@ -5,16 +5,37 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 
 import IconSwitch from "./IconSwitch";
 import Groups from "./Groups";
+import Task from "./Task";
+import DefaultTask from "./DefaultTask";
+import {TaskListContext} from "./TaskListContext";
 
 // TODO: Get rid of 'any' type specification
-function SidebarItem(prop: {group: Groups, selected: boolean, onClick: any}) {
+function SidebarItem(prop: {
+    group: Groups,
+    selected: boolean,
+}) {
+
+    const{state, dispatch} = React.useContext(TaskListContext);
+
+    const handleListItemClickContext = () => {
+        // Crutch
+        let crutchTask: Task = DefaultTask;
+        crutchTask.group = prop.group;
+        dispatch ({
+                type: 'CHANGE_GROUP',
+                payload: crutchTask,
+            }
+        );
+
+    }
 
     return (
         <ListItem
             key={prop.group}
             button
             selected={prop.selected}
-            onClick={prop.onClick}
+            // onClick={prop.onClick}
+            onClick={handleListItemClickContext}
 
         >
             <ListItemIcon>
@@ -39,7 +60,8 @@ function SidebarItem(prop: {group: Groups, selected: boolean, onClick: any}) {
                         "sidebar-item-usual"
                     }
                 >
-                    {prop.group}</ListItemText>
+                    {prop.group}
+                </ListItemText>
             </div>
         </ListItem>
     )
