@@ -7,7 +7,7 @@ import DefaultTask from "./DefaultTask";
 type InitialStateType = {
     taskList: Task[],
     isMenuOn: boolean,
-    isNew: Boolean,
+    isNew: boolean,
     sideTask: Task,
 };
 

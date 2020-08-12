@@ -12,7 +12,6 @@ let tomorrow: string = ''
     + new Date().getFullYear()
 
 
-// TODO: Add default date extracted from system date
 let DefaultTask: Task = {
     date: tomorrow,
     task: '',

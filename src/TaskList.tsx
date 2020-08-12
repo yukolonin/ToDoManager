@@ -18,11 +18,6 @@ import {TaskListContext} from "./TaskListContext";
 
 function TaskList(prop: {
     group: Groups,
-    // tl: Array<Task>,
-    // setTaskList: any,
-    // setMenuOn: any,
-    // setIsNew: any,
-    // setSideTask: any
 }){
 
     let today: string = ''
@@ -94,14 +89,13 @@ function TaskList(prop: {
                                             )
                                     }
 
-                                    </Typography></ListItem>
+                                    </Typography>
+                                </ListItem>
                             </div>
                             :
                             <div>
                                 <ListItem key={task.date}>
-                                    <TaskAccordion
-                                        task={task}
-                                    />
+                                    <TaskAccordion task={task}/>
                                 </ListItem>
                             </div>
                     ))}
@@ -130,8 +124,6 @@ function TaskList(prop: {
                     </IconButton>
                 </div>
             </div>
-
-
     )
 }
 
