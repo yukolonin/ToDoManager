@@ -13,7 +13,7 @@ import {TaskListContext} from "./TaskListContext";
 function Sidebar() {
 
     const{state, dispatch} = React.useContext(TaskListContext);
-    
+
     return (
         <div>
             <div className="sidebar">
@@ -39,7 +39,6 @@ function Sidebar() {
                 {/*}*/}
                 {/*</Typography>*/}
             </div>
-            <TaskList/>
         </div>
     )
 }
