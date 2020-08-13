@@ -1,11 +1,8 @@
 import React, {useEffect} from 'react';
 import './App.css';
 
-import DefaultTask from "./DefaultTask";
-import Groups from './Groups'
 import Sidebar from './Sidebar'
 import SideMenu from "./SideMenu";
-import Task from './Task'
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import TaskList from "./TaskList";
 
@@ -26,9 +23,9 @@ function AppBody() {
 
     return (
         <div>
-            <Sidebar/>
-            <TaskList/>
-            {<SideMenu/> && state.isMenuOn}
+            <Sidebar />
+            <TaskList />
+            {<SideMenu /> && state.isMenuOn}
         </div>
     )
 }

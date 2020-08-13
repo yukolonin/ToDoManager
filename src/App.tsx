@@ -1,11 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
 
-import DefaultTask from "./DefaultTask";
-import Groups from './Groups'
-import Sidebar from './Sidebar'
-import SideMenu from "./SideMenu";
-import Task from './Task'
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import AppBody from "./AppBody";
 
@@ -36,7 +31,7 @@ function App() {
     return (
         <TaskListContextProvider>
             <MuiThemeProvider theme={theme}>
-               <AppBody/>
+               <AppBody />
             </MuiThemeProvider>
         </TaskListContextProvider>
     )

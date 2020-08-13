@@ -1,12 +1,9 @@
 import React from 'react';
 import List from '@material-ui/core/List'
-import Typography from '@material-ui/core/Typography'
 
-import DefaultTask from "./DefaultTask";
 import Groups from './Groups'
 import SidebarItem from "./SidebarItem";
-import Task from "./Task";
-import TaskList from "./TaskList";
+
 import {TaskListContext} from "./TaskListContext";
 
 
@@ -18,9 +15,7 @@ function Sidebar() {
         <div>
             <div className="sidebar">
                 <List disablePadding dense>
-                    {Object.values(Groups).map((
-                        value: Groups
-                    ) => (
+                    {Object.values(Groups).map((value: Groups) => (
                         value === Groups.DATE ? <></> :
                             <SidebarItem
                             group={value}
