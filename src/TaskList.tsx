@@ -16,8 +16,7 @@ import Task from "./Task";
 import {TaskListContext} from "./TaskListContext";
 
 
-function TaskList(prop: {
-}){
+function TaskList(){
 
     let today: string = ''
         + new Date().getDate()
@@ -75,9 +74,9 @@ function TaskList(prop: {
 
                     {InsertDates(taskListOut, state.selectedGroup).map((task: Task) => (
                         task.group === "DATE" || task.group === "All" ?
-                            <div>
                                 <ListItem key={task.date}>
                                     <Typography variant='h6'>{
+                                        // TODO: find a nicer solution
                                         task.date === today ?
                                             'Today'
                                             :
@@ -85,21 +84,16 @@ function TaskList(prop: {
                                                 'Tomorrow'
                                                 :
                                                 task.date
-                                            )
-                                    }
-
+                                            )}
                                     </Typography>
                                 </ListItem>
-                            </div>
                             :
-                            <div>
                                 <ListItem key={task.date}>
                                     <TaskAccordion
                                         task={task}
                                         active={true}
                                     />
                                 </ListItem>
-                            </div>
                     ))}
                 </List>
             </div>
