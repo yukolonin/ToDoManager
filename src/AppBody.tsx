@@ -25,11 +25,11 @@ function AppBody() {
     })
 
     return (
-                <div>
-                    <Sidebar/>
-                    <TaskList/>
-                    {state.isMenuOn && <SideMenu/>}
-                </div>
+        <div>
+            <Sidebar/>
+            <TaskList/>
+            {<SideMenu/> && state.isMenuOn}
+        </div>
     )
 }
 
