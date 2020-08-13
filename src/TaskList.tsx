@@ -14,30 +14,11 @@ import InsertDates from "./InsertDates";
 import TaskAccordion from './TaskAccordion'
 import Task from "./Task";
 import {TaskListContext} from "./TaskListContext";
-
+import DateItem from "./DateItem";
+import DateConverter from "./DateConverter";
+import TaskItem from "./TaskItem";
 
 function TaskList(){
-
-    let today: string = ''
-        + new Date().getDate()
-        + '/'
-        + (new Date().getMonth() + 1)
-        + '/'
-        + new Date().getFullYear();
-    if (today.split('/')[0].length === 1) {
-        today = '0' + today
-    }
-
-
-    let tomorrow: string = ''
-        + (new Date().getDate() + 1)
-        + '/'
-        + (new Date().getMonth() + 1)
-        + '/'
-        + new Date().getFullYear();
-    if (tomorrow.split('/')[0].length === 1) {
-        tomorrow = '0' + tomorrow
-    }
 
     const{state, dispatch} = React.useContext(TaskListContext);
 
@@ -73,27 +54,10 @@ function TaskList(){
                     </ListItem>
 
                     {InsertDates(taskListOut, state.selectedGroup).map((task: Task) => (
-                        task.group === "DATE" || task.group === "All" ?
-                            <ListItem key={task.date}>
-                                <Typography variant='h6'>{
-                                    // TODO: find a nicer solution
-                                    task.date === today ?
-                                        'Today'
-                                        :
-                                        (task.date === tomorrow ?
-                                            'Tomorrow'
-                                            :
-                                            task.date
-                                        )}
-                                </Typography>
-                            </ListItem>
+                        task.group === "DATE" ?
+                            <DateItem date={DateConverter(task.date)} />
                         :
-                            <ListItem key={task.date}>
-                                <TaskAccordion
-                                    task={task}
-                                    active={true}
-                                />
-                            </ListItem>
+                            <TaskItem task={task} />
                     ))}
                 </List>
             </div>
