@@ -74,26 +74,26 @@ function TaskList(){
 
                     {InsertDates(taskListOut, state.selectedGroup).map((task: Task) => (
                         task.group === "DATE" || task.group === "All" ?
-                                <ListItem key={task.date}>
-                                    <Typography variant='h6'>{
-                                        // TODO: find a nicer solution
-                                        task.date === today ?
-                                            'Today'
+                            <ListItem key={task.date}>
+                                <Typography variant='h6'>{
+                                    // TODO: find a nicer solution
+                                    task.date === today ?
+                                        'Today'
+                                        :
+                                        (task.date === tomorrow ?
+                                            'Tomorrow'
                                             :
-                                            (task.date === tomorrow ?
-                                                'Tomorrow'
-                                                :
-                                                task.date
-                                            )}
-                                    </Typography>
-                                </ListItem>
-                            :
-                                <ListItem key={task.date}>
-                                    <TaskAccordion
-                                        task={task}
-                                        active={true}
-                                    />
-                                </ListItem>
+                                            task.date
+                                        )}
+                                </Typography>
+                            </ListItem>
+                        :
+                            <ListItem key={task.date}>
+                                <TaskAccordion
+                                    task={task}
+                                    active={true}
+                                />
+                            </ListItem>
                     ))}
                 </List>
             </div>
