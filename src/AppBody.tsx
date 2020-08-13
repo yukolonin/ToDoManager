@@ -25,7 +25,7 @@ function AppBody() {
         <div>
             <Sidebar />
             <TaskList />
-            {<SideMenu /> && state.isMenuOn}
+            {state.isMenuOn && <SideMenu />}
         </div>
     )
 }
