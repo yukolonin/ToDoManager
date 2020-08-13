@@ -94,7 +94,10 @@ function TaskList(prop: {
                             :
                             <div>
                                 <ListItem key={task.date}>
-                                    <TaskAccordion task={task}/>
+                                    <TaskAccordion
+                                        task={task}
+                                        active={true}
+                                    />
                                 </ListItem>
                             </div>
                     ))}

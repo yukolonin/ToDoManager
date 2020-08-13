@@ -14,7 +14,6 @@ import Groups from "./Groups";
 import SelectGroup2 from "./SelectGroup2";
 import Task from "./Task";
 import TaskAccordion from "./TaskAccordion";
-import TaskAccordionDead from "./TaskAccordionDead";
 import {TaskListContext} from "./TaskListContext";
 
 function SideMenu() {
@@ -129,15 +128,15 @@ function SideMenu() {
                                     </div>
                                 </ListItem>
                             {/* Similar tasks appear if menu is called by "Edit" button */}
-                            {/*TODO: Get rid of TADead, replace it by 'inactive' property for TA*/}
                                 {state.taskList.map((task: Task) => (
                                     // Task is considered "similar" if its first word matches
                                     task.task.split(' ')[0] === state.sideTask.task.split(' ')[0]
                                     &&
                                     task.id !== state.sideTask.id
                                         ?
-                                            <TaskAccordionDead
+                                            <TaskAccordion
                                                 task={task}
+                                                active={false}
                                             />
                                         :
                                             <></>

@@ -19,6 +19,7 @@ import {TaskListContext} from "./TaskListContext";
 
 function TaskAccordion(prop: {
     task: Task,
+    active: boolean,
 }) {
 
     const{state, dispatch} = React.useContext(TaskListContext);
@@ -60,13 +61,16 @@ function TaskAccordion(prop: {
                         onClick={(event) => event.stopPropagation()}
                         onFocus={(event) => event.stopPropagation()}
                         control={<Checkbox
-                            checked={checked}
+                            // disabled={!prop.active}
+                            // checked={checked}
+                            checked={prop.task.checked}
                             className='checkbox'
                             icon={<CircleUnchecked />}
                             checkedIcon={<CircleCheckedFilled />}
                             onChange={handleCheckContext}
                         />}
-                        label={checked ? <s>{prop.task.task}</s> : prop.task.task}
+                        // label={checked ? <s>{prop.task.task}</s> : prop.task.task}
+                        label={prop.task.checked ? <s>{prop.task.task}</s> : prop.task.task}
                     />
                     <Typography variant='subtitle1' className='task-accordion-date'>
                         <Box>
@@ -79,15 +83,15 @@ function TaskAccordion(prop: {
                         </Box>
                     </Typography>
                 </AccordionSummary>
-                        <AccordionActions>
-                            <Button
-                                onClick={handleEditClickContext}
-                            >
-                                <Typography variant='button'>
-                                    Edit
-                                </Typography>
-                            </Button>
-                        </AccordionActions>
+                {prop.active && <AccordionActions>
+                    <Button
+                        onClick={handleEditClickContext}
+                    >
+                        <Typography variant='button'>
+                            Edit
+                        </Typography>
+                    </Button>
+                </AccordionActions>}
             </Accordion>
         </div>
     )

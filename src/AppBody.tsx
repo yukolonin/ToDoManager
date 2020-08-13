@@ -9,6 +9,13 @@ import Task from './Task'
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import TaskList from "./TaskList";
 
+/* TODO:
+* Remove TADead
+* Remove SelectGroup, rename SelectGroup2 to SelectGroup
+*
+*
+* */
+
 function AppBody() {
 
     const{state, dispatch} = React.useContext(TaskListContext);
