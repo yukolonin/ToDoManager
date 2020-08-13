@@ -38,6 +38,7 @@ function TaskList(){
         state.taskList.length !== 0 ? // Might be a nicer way to do the same
             <div className="task-list">
                 <List>
+
                     <ListItem className='tasklist-header'>
                         <Typography className="tasklist-header-text" component='div'>
                             <Box fontWeight='fontWeightMedium' fontSize='20px'>
@@ -59,9 +60,12 @@ function TaskList(){
                         :
                             <TaskItem task={task} />
                     ))}
+
                 </List>
             </div>
+
             :
+
             <div className="tasklist-empty">
                 <div className="tasklist-empty-item">
                     <Typography className="tasklist-empty-header">

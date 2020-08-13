@@ -61,15 +61,12 @@ function TaskAccordion(prop: {
                         onClick={(event) => event.stopPropagation()}
                         onFocus={(event) => event.stopPropagation()}
                         control={<Checkbox
-                            // disabled={!prop.active}
-                            // checked={checked}
                             checked={prop.task.checked}
                             className='checkbox'
                             icon={<CircleUnchecked />}
                             checkedIcon={<CircleCheckedFilled />}
                             onChange={handleCheckContext}
                         />}
-                        // label={checked ? <s>{prop.task.task}</s> : prop.task.task}
                         label={prop.task.checked ? <s>{prop.task.task}</s> : prop.task.task}
                     />
                     <Typography variant='subtitle1' className='task-accordion-date'>

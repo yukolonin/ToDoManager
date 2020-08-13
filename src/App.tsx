@@ -11,17 +11,6 @@ import AppBody from "./AppBody";
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-
-//-----------------
-// let tl: Array<Task> = [
-//     {date: '07/02/2021', task: 'Убить мух', group: Groups.ВИЛКИ},
-//     {date: '07/02/2021', task: 'Забрать погону', group: Groups.ПОГОНЫ},
-//     {date: '01/02/2021', task: 'Помыться под струей', group: Groups.ПОГОНЫ},
-//     {date: '07/02/2021', task: 'Постоять как цапля', group: Groups.ВИЛКИ},
-//     {date: '05/02/2021', task: 'Выпить три семерки с дурой одной', group: Groups.СЛАДКИЙ_ХЛЕБ}
-// ]
-//-----------------
-
 const theme = createMuiTheme({
     palette: {
         primary: { main: '#F75934' },

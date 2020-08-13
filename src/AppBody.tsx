@@ -12,13 +12,12 @@ import TaskList from "./TaskList";
 /* TODO:
 * Remove TADead
 * Remove SelectGroup, rename SelectGroup2 to SelectGroup
-* Move 'today' and 'tomorrow' formulas to separate file(s)
+*
 *
 *
 * */
 
 function AppBody() {
-
     const{state, dispatch} = React.useContext(TaskListContext);
 
     useEffect(() => {
