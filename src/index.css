@@ -72,19 +72,18 @@ code {
 
             .tasklist-header{
               /*position: relative;*/
-              /*display: flex;*/
+              display: flex;
+              justify-content: space-between;
               /*width: 40%;*/
               /*background: #FFFFFF;*/
             }
 
             .tasklist-header-text{
-              /*position: absolute;*/
+
             }
 
             .add-button {
-              position: absolute;
-              top: 0;
-              right: 0;
+
             }
 
 

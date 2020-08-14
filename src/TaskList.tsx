@@ -37,29 +37,29 @@ function TaskList(){
     return (
         state.taskList.length !== 0 ? // Might be a nicer way to do the same
             <div className="task-list">
-                <List className='task-list-list'>
-                    <div>
-                        <Typography className="tasklist-header-text">
-                            <Box fontWeight='fontWeightMedium' fontSize='20px'>
-                                Привет, братишка
-                            </Box>
-                        </Typography>
-                        <div className="add-button">
-                            <Button variant='text' onClick={handleNewClickContext}>
-                                <Typography variant='button'>
-                                    Курлык
-                                </Typography>
-                            </Button>
-                        </div>
-                    </div>
 
+                <div className='tasklist-header'>
+                    <Typography className="tasklist-header-text">
+                        <Box fontWeight='fontWeightMedium' fontSize='20px'>
+                            Привет, братишка
+                        </Box>
+                    </Typography>
+                    <div className="add-button">
+                        <Button variant='text' onClick={handleNewClickContext}>
+                            <Typography variant='button'>
+                                Курлык
+                            </Typography>
+                        </Button>
+                    </div>
+                </div>
+
+                <List className='task-list-list'>
                     {InsertDates(taskListOut, state.selectedGroup).map((task: Task) => (
                         task.group === "DATE" ?
                             <DateItem date={DateConverter(task.date)} />
                         :
                             <TaskItem task={task} />
                     ))}
-
                 </List>
             </div>
 
