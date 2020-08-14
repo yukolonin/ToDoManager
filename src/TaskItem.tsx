@@ -7,12 +7,7 @@ import Task from "./Task";
 // TODO: probably worth rewriting to arrow notation
 function TaskItem(props: {task: Task}) {
     return (
-        <ListItem key={props.task.date}>
-            <TaskAccordion
-                task={props.task}
-                active={true}
-            />
-        </ListItem>
+            <TaskAccordion task={props.task} active={true} />
     )
 }
 

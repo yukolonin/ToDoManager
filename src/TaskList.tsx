@@ -37,10 +37,9 @@ function TaskList(){
     return (
         state.taskList.length !== 0 ? // Might be a nicer way to do the same
             <div className="task-list">
-                <List>
-
-                    <ListItem className='tasklist-header'>
-                        <Typography className="tasklist-header-text" component='div'>
+                <List className='task-list-list'>
+                    <div>
+                        <Typography className="tasklist-header-text">
                             <Box fontWeight='fontWeightMedium' fontSize='20px'>
                                 Привет, братишка
                             </Box>
@@ -52,7 +51,7 @@ function TaskList(){
                                 </Typography>
                             </Button>
                         </div>
-                    </ListItem>
+                    </div>
 
                     {InsertDates(taskListOut, state.selectedGroup).map((task: Task) => (
                         task.group === "DATE" ?

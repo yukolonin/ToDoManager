@@ -9,7 +9,7 @@ import TaskList from "./TaskList";
 /* TODO:
 * Remove TADead
 * Remove SelectGroup, rename SelectGroup2 to SelectGroup
-*
+* Probably worth rewriting main frame using separate "scroll columns"
 *
 *
 * */
@@ -22,7 +22,7 @@ function AppBody() {
     })
 
     return (
-        <div>
+        <div className='main-frame'>
             <Sidebar />
             <TaskList />
             {state.isMenuOn && <SideMenu />}
