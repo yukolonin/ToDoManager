@@ -6,10 +6,8 @@ import Input from '@material-ui/core/Input';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import TextField from '@material-ui/core/TextField'
 import Event from '@material-ui/icons/Event'
 
-import DefaultTask from "./DefaultTask";
 import Groups from "./Groups";
 import SelectGroup2 from "./SelectGroup2";
 import Task from "./Task";
@@ -68,12 +66,14 @@ function SideMenu() {
 
     return (
         <div className="side-menu">
+
+            <Typography>
+                <Box className="sidemenu-header-text" fontWeight='fontWeightMedium' fontSize='20px'>
+                    Раз-раз-раз-раз-раз-раз
+                </Box>
+            </Typography>
+
             <div className='sidemenu-item'>
-                <Typography className="sidemenu-header-text">
-                    <Box fontWeight='fontWeightMedium' fontSize='20px'>
-                        Раз-раз-раз-раз-раз-раз
-                    </Box>
-                </Typography>
 
                 <Input className='sidemenu-task-setter'
                     id="task-description"
@@ -117,34 +117,36 @@ function SideMenu() {
                     </Button>
                 </div>
             </div>
-            <div className='similar-tasks'>
-                {state.isNew
-                    ? <></> :
-                        <div>
-                            <List>
-                                <ListItem>
-                                    <div>
-                                        <ListItemText>Similar tasks</ListItemText>
-                                    </div>
-                                </ListItem>
-                            {/* Similar tasks appear if menu is called by "Edit" button */}
-                                {state.taskList.map((task: Task) => (
-                                    // Task is considered "similar" if its first word matches
-                                    task.task.split(' ')[0] === state.sideTask.task.split(' ')[0]
-                                    &&
-                                    task.id !== state.sideTask.id
-                                        ?
-                                            <TaskAccordion
-                                                task={task}
-                                                active={false}
-                                            />
-                                        :
-                                            <></>
-                                ))}
-                            </List>
-                        </div>
+
+
+                {state.isNew ? <></> :
+                    <Typography>
+                        <Box className="sidemenu-header-text" fontWeight='fontWeightMedium' fontSize='20px'>
+                            Similar tasks
+                        </Box>
+                    </Typography>
                 }
-            </div>
+                {state.isNew ? <></> :
+                    <div className='similar-tasks'>
+                        <List>
+                        {/* Similar tasks appear if menu is called by "Edit" button */}
+                            {state.taskList.map((task: Task) => (
+                                // Task is considered "similar" if its first word matches
+                                task.task.split(' ')[0] === state.sideTask.task.split(' ')[0]
+                                &&
+                                task.id !== state.sideTask.id
+                                    ?
+                                        <TaskAccordion
+                                            task={task}
+                                            active={false}
+                                        />
+                                    :
+                                        <></>
+                            ))}
+                        </List>
+                    </div>
+                }
+
         </div>
     )
 }

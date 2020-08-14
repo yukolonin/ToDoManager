@@ -162,27 +162,25 @@ code {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
 }
 
+            .sidemenu-header-text{
+              margin-top: 50%;
+              margin-bottom: 50%;
+            }
+
             .sidemenu-item{
-              position: absolute;
-              top: 10%;
+
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
             }
 
-            .sidemenu-header-text{
-
-            }
-
             .sidemenu-task-setter{
               position: absolute;
-              /*margin-top: 10%;*/
-              /*bottom: 20%;*/
             }
 
             .sidemenu-group-block{
@@ -197,5 +195,5 @@ code {
             }
 
             .similar-tasks{
-              width: 96%;
+              width: 98%;
             }
