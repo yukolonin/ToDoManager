@@ -125,15 +125,16 @@ code {
                 position: absolute;
                 left: 0;
                 bottom: 0;
+
                 font-size: 0.2em;
                 color: #747474;
                 /*color: #333333;*/
               }
               .task-accordion-group {
                 position: absolute;
-
                 right: 0;
                 bottom: 0;
+
                 font-size: 14px;
                 color: #747474;
               }
@@ -173,7 +174,7 @@ code {
             }
 
             .sidemenu-task-setter{
-              position: absolute;
+
             }
 
             .sidemenu-group-block{
