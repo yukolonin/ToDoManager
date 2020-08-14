@@ -12,8 +12,6 @@ function Sidebar() {
     const{state, dispatch} = React.useContext(TaskListContext);
 
     return (
-
-        <div className="sidebar">
             <List disablePadding dense>
                 {Object.values(Groups).map((value: Groups) => (
                     value === Groups.DATE ? <></> :
@@ -23,18 +21,6 @@ function Sidebar() {
                         />
                 ))}
             </List>
-            {/*Debug print*/}
-            {/*<Typography>{*/}
-            {/*    JSON.stringify([state.taskList.map((task) => ([*/}
-            {/*        task.task,*/}
-            {/*        task.checked,*/}
-            {/*        task.id*/}
-            {/*    ]))])*/}
-            {/*    // JSON.stringify(state.taskList)*/}
-            {/*}*/}
-            {/*</Typography>*/}
-        </div>
-
     )
 }
 

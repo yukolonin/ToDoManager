@@ -5,6 +5,10 @@ import Sidebar from './Sidebar'
 import SideMenu from "./SideMenu";
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import TaskList from "./TaskList";
+import Groups from "./Groups";
+import SidebarItem from "./SidebarItem";
+
+import Typography from "@material-ui/core/Typography";
 
 /* TODO:
 * Remove TADead
@@ -51,8 +55,15 @@ function AppBody() {
         width > widthThreshold && height > heightThreshold
             ?
             <div className='main-frame'>
-                <Sidebar />
+
+                <div className="sidebar">
+                    <Sidebar />
+                </div>
+
+
                 <TaskList />
+
+
                 {state.isMenuOn && <SideMenu />}
             </div>
             :
@@ -61,3 +72,19 @@ function AppBody() {
 }
 
 export default AppBody
+
+{/*Debug print; insert right after Sidebar element*/}
+{/*<Typography>{*/}
+{/*    JSON.stringify([state.taskList.map((task) => ([*/}
+{/*        task.task,*/}
+{/*        task.checked,*/}
+{/*        task.id*/}
+{/*    ]))])*/}
+{/*    // JSON.stringify(state.taskList)*/}
+{/*}*/}
+{/*</Typography>*/}
+
+{/*Debug print; insert right after Sidebar element*/}
+{/*<Typography>*/}
+{/*    {JSON.stringify(state.sideTask)}*/}
+{/*</Typography>*/}
