@@ -1,6 +1,8 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import './App.css';
 
+import Box from '@material-ui/core/Box';
+import {Button} from '@material-ui/core'
 import Dialog from '@material-ui/core/Dialog'
 
 import Sidebar from './Sidebar'
@@ -12,6 +14,13 @@ import Groups from "./Groups";
 import SidebarItem from "./SidebarItem";
 
 import Typography from "@material-ui/core/Typography";
+import InsertDates from "./InsertDates";
+import Task from "./Task";
+import DateItem from "./DateItem";
+import DateConverter from "./DateConverter";
+import TaskItem from "./TaskItem";
+import AddFirstTask from "./AddFirstTask";
+import DefaultTask from "./DefaultTask";
 
 /* TODO:
 * Remove TADead
@@ -39,6 +48,16 @@ function AppBody() {
     const{state, dispatch} = React.useContext(TaskListContext);
 
     const [width, height] = useWindowSize();
+
+    const handleNewClickContext = () => {
+        let newTask: Task = DefaultTask;
+        newTask.id = JSON.stringify(Date.now());
+        dispatch({
+                type: 'ADD_OPEN',
+                payload: newTask,
+            }
+        )
+    }
 
     const handleDiscardClickContext = () => {
         dispatch({
@@ -69,8 +88,31 @@ function AppBody() {
                 </div>
 
 
-                <TaskList />
+                {state.taskList.length !== 0 ? // Might be a nicer way to do the same
+                    <div className="task-list">
+                        <div className='tasklist-header'>
+                            <Typography className="tasklist-header-text">
+                                <Box fontWeight='fontWeightMedium' fontSize='20px'>
+                                    Привет, братишка
+                                </Box>
+                            </Typography>
+                            <div className="add-button">
+                                <Button variant='text' onClick={handleNewClickContext}>
+                                    <Typography variant='button'>
+                                        Курлык
+                                    </Typography>
+                                </Button>
+                            </div>
+                        </div>
+                        <TaskList />
+                    </div>
 
+                    :
+
+                    <div className="tasklist-empty">
+                        <AddFirstTask/>
+                    </div>
+                }
 
                 {state.isMenuOn && <SideMenu />}
             </div>
