@@ -66,7 +66,7 @@ function GroupDrawer() {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <IconButton
-                        // color="inherit"
+                        color="inherit"
                         // aria-label="Open drawer"
                         // edge="start"
                         onClick={handleDrawerToggle}
@@ -81,7 +81,6 @@ function GroupDrawer() {
             </AppBar>
 
             <nav className={classes.drawer}>
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
                     <Drawer
                         variant="temporary"
@@ -95,24 +94,9 @@ function GroupDrawer() {
                             keepMounted: true, // Better open performance on mobile.
                         }}
                     >
-                        <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
-                            <CloseIcon/>
-                        </IconButton>
                         <Sidebar />
                     </Drawer>
                 </Hidden>
-                {/*<Hidden xsDown implementation="css">*/}
-                {/*    <Drawer*/}
-                {/*        className={classes.drawer}*/}
-                {/*        variant="permanent"*/}
-                {/*        classes={{*/}
-                {/*            paper: classes.drawerPaper,*/}
-                {/*        }}*/}
-                {/*    >*/}
-                {/*        <div className={classes.toolbar} />*/}
-                {/*        <Sidebar />*/}
-                {/*    </Drawer>*/}
-                {/*</Hidden>*/}
             </nav>
         </div>
     );

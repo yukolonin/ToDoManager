@@ -1,11 +1,15 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import './App.css';
 
-import Box from '@material-ui/core/Box';
-import {Button} from '@material-ui/core'
-import Dialog from '@material-ui/core/Dialog'
 
-import Sidebar from './Sidebar'
+import Add from '@material-ui/icons/Add';
+import Box from '@material-ui/core/Box';
+import {Button} from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
+import Fab from '@material-ui/core/Fab';
+
+import Sidebar from './Sidebar';
 import SideMenu from "./SideMenu";
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import TaskList from "./TaskList";
@@ -80,8 +84,7 @@ function AppBody() {
     // TODO: Fill it with separated components
 
     return (
-        width > widthThreshold && height > heightThreshold
-            ?
+        width > widthThreshold && height > heightThreshold ?
             <div className='main-frame'>
 
                 <div className="sidebar">
@@ -107,9 +110,7 @@ function AppBody() {
                         </div>
                         <TaskList />
                     </div>
-
-                    :
-
+                :
                     <div className="tasklist-empty">
                         <AddFirstTask/>
                     </div>
@@ -117,12 +118,23 @@ function AppBody() {
 
                 {state.isMenuOn && <SideMenu />}
             </div>
-            :
+        :
             <div>
                 <GroupDrawer />
-                HERE BE MOBILE VIEW
-                <TaskList />
+                <div className='task-list-mobile'>
+                    <TaskList />
+                </div>
 
+                <Fab
+                    className='add-button-mobile'
+                    color="primary"
+                    aria-label="upload picture"
+                    component="span"
+                    onClick={handleNewClickContext}
+                    style={{position: 'fixed'}}
+                >
+                        <Add />
+                </Fab>
 
                 <Dialog
                     onClose={handleDiscardClickContext}
