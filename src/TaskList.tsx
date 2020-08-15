@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import {Button} from '@material-ui/core'
 
+import AddFirstTask from "./AddFirstTask";
 import DefaultTask from "./DefaultTask";
 import Groups from "./Groups";
 import InsertDates from "./InsertDates";
@@ -66,26 +67,7 @@ function TaskList(){
             :
 
             <div className="tasklist-empty">
-                <div className="tasklist-empty-item">
-                    <Typography className="tasklist-empty-header">
-                        <Box fontWeight='fontWeightMedium' fontSize='18px'>
-                            Сколько истребителей было?
-                        </Box>
-                    </Typography>
-                    <Typography className="tasklist-empty-text" color='primary'>
-                        <Box fontWeight='fontWeightMedium' fontSize='14px'>
-                            БУДЬТЕ Ж ВЫ ЛЮДЬМИ
-                        </Box>
-                    </Typography>
-                    <IconButton
-                        color="primary"
-                        aria-label="upload picture"
-                        component="span"
-                        onClick={handleNewClickContext}
-                    >
-                        <AddCircleRoundedIcon />
-                    </IconButton>
-                </div>
+                <AddFirstTask />
             </div>
     )
 }
