@@ -21,6 +21,7 @@ import DateConverter from "./DateConverter";
 import TaskItem from "./TaskItem";
 import AddFirstTask from "./AddFirstTask";
 import DefaultTask from "./DefaultTask";
+import GroupDrawer from "./GroupDrawer";
 
 /* TODO:
 * Remove TADead
@@ -118,6 +119,7 @@ function AppBody() {
             </div>
             :
             <div>
+                <GroupDrawer />
                 HERE BE MOBILE VIEW
                 <TaskList />
 
