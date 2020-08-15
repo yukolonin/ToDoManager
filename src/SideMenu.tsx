@@ -31,33 +31,33 @@ function SideMenu() {
 
             <TaskSetter />
 
-                {state.isNew ? <></> :
-                    <Typography>
-                        <Box className="sidemenu-header-text" fontWeight='fontWeightMedium' fontSize='20px'>
-                            Similar tasks
-                        </Box>
-                    </Typography>
-                }
-                {state.isNew ? <></> :
-                    <div className='similar-tasks'>
-                        <List>
-                        {/* Similar tasks appear if menu is called by "Edit" button */}
-                            {state.taskList.map((task: Task) => (
-                                // Task is considered "similar" if its first word matches
-                                task.task.split(' ')[0] === state.sideTask.task.split(' ')[0]
-                                &&
-                                task.id !== state.sideTask.id
-                                    ?
-                                        <TaskAccordion
-                                            task={task}
-                                            active={false}
-                                        />
-                                    :
-                                        <></>
-                            ))}
-                        </List>
-                    </div>
-                }
+            {state.isNew ? <></> :
+                <Typography>
+                    <Box className="sidemenu-header-text" fontWeight='fontWeightMedium' fontSize='20px'>
+                        Similar tasks
+                    </Box>
+                </Typography>
+            }
+            {state.isNew ? <></> :
+                <div className='similar-tasks'>
+                    <List>
+                    {/* Similar tasks appear if menu is called by "Edit" button */}
+                        {state.taskList.map((task: Task) => (
+                            // Task is considered "similar" if its first word matches
+                            task.task.split(' ')[0] === state.sideTask.task.split(' ')[0]
+                            &&
+                            task.id !== state.sideTask.id
+                                ?
+                                    <TaskAccordion
+                                        task={task}
+                                        active={false}
+                                    />
+                                :
+                                    <></>
+                        ))}
+                    </List>
+                </div>
+            }
 
         </div>
     )

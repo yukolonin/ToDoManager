@@ -1,10 +1,13 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import './App.css';
 
+import Dialog from '@material-ui/core/Dialog'
+
 import Sidebar from './Sidebar'
 import SideMenu from "./SideMenu";
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import TaskList from "./TaskList";
+import TaskSetter from "./TaskSetter";
 import Groups from "./Groups";
 import SidebarItem from "./SidebarItem";
 
@@ -37,6 +40,11 @@ function AppBody() {
 
     const [width, height] = useWindowSize();
 
+    const handleDiscardClickContext = () => {
+        dispatch({
+            type: 'DISCARD',
+        })}
+
     // TODO: Change values to relevant
     const widthThreshold = 666;
     const heightThreshold = 777;
@@ -67,7 +75,19 @@ function AppBody() {
                 {state.isMenuOn && <SideMenu />}
             </div>
             :
-            <div>HERE BE MOBILE VIEW</div>
+            <div>
+                HERE BE MOBILE VIEW
+                <TaskList />
+
+
+                <Dialog
+                    onClose={handleDiscardClickContext}
+                    open={state.isMenuOn}
+                >
+                    <TaskSetter />
+                </Dialog>
+
+            </div>
     )
 }
 
