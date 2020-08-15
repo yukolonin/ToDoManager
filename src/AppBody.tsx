@@ -5,7 +5,6 @@ import './App.css';
 import Add from '@material-ui/icons/Add';
 import Box from '@material-ui/core/Box';
 import {Button} from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
 import Dialog from '@material-ui/core/Dialog';
 import Fab from '@material-ui/core/Fab';
 
@@ -14,8 +13,7 @@ import SideMenu from "./SideMenu";
 import {TaskListContext, TaskListContextProvider} from "./TaskListContext";
 import TaskList from "./TaskList";
 import TaskSetter from "./TaskSetter";
-import Groups from "./Groups";
-import SidebarItem from "./SidebarItem";
+
 
 import Typography from "@material-ui/core/Typography";
 import InsertDates from "./InsertDates";
@@ -76,12 +74,6 @@ function AppBody() {
     useEffect(() => {
         localStorage.setItem('taskList', JSON.stringify(state.taskList))
     })
-
-
-    // TODO: Roadmap:
-    // TODO: Separate components for reuse: Sidebar-list, TaskList, SideMenu-dialogue
-    // TODO: Create Mobile Layout skeleton (AppBar+Toolbar, Drawer, %pop-up dialog%)
-    // TODO: Fill it with separated components
 
     return (
         width > widthThreshold && height > heightThreshold ?
